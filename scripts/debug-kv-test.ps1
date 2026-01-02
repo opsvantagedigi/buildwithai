@@ -1,4 +1,4 @@
-$base = 'https://buildwithairedesign-lqx336spi-ajay-sidals-projects-132aa3d1.vercel.app'
+$base = 'https://buildwithairedesign-h727qg83w-ajay-sidals-projects-132aa3d1.vercel.app'
 for ($i=1; $i -le 5; $i++) {
   try {
     $r = Invoke-RestMethod -Uri "$base/api/debug/kv" -Method GET -TimeoutSec 30
