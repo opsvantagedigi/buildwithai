@@ -8,7 +8,8 @@ import { MDXRemote } from 'next-mdx-remote'
 type Props = { params: { slug: string[] } }
 
 export default async function DocPage({ params }: Props){
-  const slugPath = params.slug.join('/')
+  const slugArr = params?.slug ?? []
+  const slugPath = Array.isArray(slugArr) ? slugArr.join('/') : ''
   const filePath = path.join(process.cwd(), 'src', 'data', 'docs', `${slugPath}.mdx`)
 
   if (!fs.existsSync(filePath)){
