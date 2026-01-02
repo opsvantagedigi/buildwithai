@@ -14,7 +14,9 @@ foreach ($ep in $endpoints) {
     $status = 'ERR'
     $body = ''
     try {
-      $resp = Invoke-WebRequest -Uri ($base + $ep) -Method GET -UseBasicParsing -Headers @{ Accept = 'application/json' } -TimeoutSec 30
+      $nonce = [DateTime]::UtcNow.Ticks.ToString() + "-" + $i
+      $url = $base + $ep + "&_=" + $nonce
+      $resp = Invoke-WebRequest -Uri $url -Method GET -UseBasicParsing -Headers @{ Accept = 'application/json' } -TimeoutSec 30
       if ($resp.StatusCode -ne $null) { $status = $resp.StatusCode }
       else { $status = 200 }
     } catch [System.Net.WebException] {
