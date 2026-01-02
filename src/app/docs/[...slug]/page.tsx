@@ -22,7 +22,21 @@ export default async function DocPage({ params }: Props){
   }
 
   const raw = fs.readFileSync(filePath, 'utf8')
-  const mdxSource = await serialize(raw)
+  let mdxSource = null
+  try {
+    mdxSource = await serialize(raw)
+  } catch (e) {
+    // If serialization fails, render a helpful fallback instead of crashing
+    console.error('MDX serialization error for', filePath, e)
+    return (
+      <DocsLayout>
+        <article className="docs-prose">
+          <h1>Document rendering error</h1>
+          <p>There was a problem rendering this document. Please check the source MDX file.</p>
+        </article>
+      </DocsLayout>
+    )
+  }
 
   return (
     <DocsLayout>

@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
@@ -8,6 +9,7 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 }
 
 export default function Input({ id, label, helper, error, className = '', ...props }: InputProps) {
+  // Generate a client-only id to avoid SSR/client mismatch
   const inputId = id || `gds-input-${Math.random().toString(36).slice(2,8)}`
   const errorText = typeof error === 'string' ? error : undefined
 
