@@ -1,4 +1,4 @@
-$base = "https://buildwithairedesign-h727qg83w-ajay-sidals-projects-132aa3d1.vercel.app"
+$base = "https://buildwithairedesign-dkz1gvbc1-ajay-sidals-projects-132aa3d1.vercel.app"
 $endpoints = @(
   "/api/domain/info?name=example.com",
   "/api/domain/rdap?name=example.com",
