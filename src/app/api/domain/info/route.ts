@@ -8,14 +8,7 @@ import { generateDomainRecommendations, enrichRecommendationsWithAvailability } 
 import { analyzeDns } from '@/lib/dnsDiagnostics'
 import { scoreDomainSeo } from '@/lib/domainSeoScore'
 
-export async function POST(request: Request) {
-  const body = await request.json().catch(() => ({}))
-  const parse = validation.DomainCheckSchema.safeParse(body)
-  if (!parse.success) {
-    return NextResponse.json({ success: false, error: 'invalid_payload', details: parse.error.format() }, { status: 400 })
-  }
-  const domain = parse.data.domain
-
+async function handleDomainInfo(domain: string) {
   const tasks: any = {}
   tasks.rdap = rdap.fetchRdap(domain).then((d: any) => rdap.normalizeToCanonical(d)).catch((e: any) => ({ error: 'rdap_error', message: String(e?.message || e) }))
   tasks.pricing = getPricingData().catch((e: any) => ({ error: 'pricing_error', message: String(e?.message || e) }))
@@ -51,4 +44,27 @@ export async function POST(request: Request) {
   // set short cache header for clients
   res.headers.set('Cache-Control', 'public, max-age=60, s-maxage=300')
   return res
+}
+
+export async function POST(request: Request) {
+  const body = await request.json().catch(() => ({}))
+  const parse = validation.DomainCheckSchema.safeParse(body)
+  if (!parse.success) {
+    return NextResponse.json({ success: false, error: 'invalid_payload', details: parse.error.format() }, { status: 400 })
+  }
+  const domain = parse.data.domain
+  return handleDomainInfo(domain)
+}
+
+export async function GET(request: Request) {
+  try {
+    const url = new URL(request.url)
+    const name = url.searchParams.get('name')
+    if (!name) {
+      return NextResponse.json({ success: false, error: 'missing_name_query' }, { status: 400 })
+    }
+    return await handleDomainInfo(name)
+  } catch (err: any) {
+    return NextResponse.json({ success: false, error: 'invalid_request', message: String(err?.message || err) }, { status: 400 })
+  }
 }
