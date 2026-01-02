@@ -1,4 +1,4 @@
-$base='https://buildwithairedesign-jity7yyo7-ajay-sidals-projects-132aa3d1.vercel.app'
+$base='https://buildwithairedesign-lvtd3muxa-ajay-sidals-projects-132aa3d1.vercel.app'
 $routes = @(
     '/',
     '/ai-website-builder',
