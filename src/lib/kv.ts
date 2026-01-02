@@ -119,4 +119,53 @@ export async function kvSetRdap(domain: string, value: any) {
   }
 }
 
+// Lightweight generic KV helper (non-breaking addition).
+// Provides `kv.get(key)` and `kv.set(key, value, { ex })` to support debug routes.
+export const kv = {
+  async get(key: string) {
+    if (!kvClient) return null
+    try {
+      const v = await kvClient.get(key)
+      if (typeof v === 'string') {
+        try {
+          return JSON.parse(v)
+        } catch (_) {
+          return v
+        }
+      }
+      return v
+    } catch (_) {
+      return null
+    }
+  },
+  async set(key: string, value: any, opts?: { ex?: number }) {
+    if (!kvClient) return null
+    if (NO_WRITE_FALLBACK) return { skippedReadOnly: true }
+    try {
+      const v = typeof value === 'string' ? value : JSON.stringify(value)
+      const setResult = await kvClient.set(key, v)
+      if (opts?.ex && typeof kvClient.expire === 'function') {
+        try {
+          await kvClient.expire(key, Math.ceil(opts.ex))
+        } catch (_) {
+          // ignore
+        }
+      }
+      return setResult
+    } catch (_) {
+      return null
+    }
+  },
+}
+
 export default { kvGetRdap, kvSetRdap }
+
+export function getKvStatus() {
+  return {
+    writeEnabled: WRITE_ENABLED,
+    readOnlyOnly: READ_ONLY_ONLY,
+    noWriteFallback: NO_WRITE_FALLBACK,
+    kvClientPresent: !!kvClient,
+    kvUrl: process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL || null,
+  }
+}

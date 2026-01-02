@@ -10,7 +10,7 @@ import { scoreDomainSeo } from '@/lib/domainSeoScore'
 
 async function handleDomainInfo(domain: string) {
   const tasks: any = {}
-  tasks.rdap = rdap.fetchRdap(domain).then((d: any) => rdap.normalizeToCanonical(d)).catch((e: any) => ({ error: 'rdap_error', message: String(e?.message || e) }))
+    tasks.rdap = rdap.fetchRdap(domain).then((d: any) => rdap.normalizeToCanonical(d)).catch((e: any) => ({ error: 'rdap_error', message: String(e?.message || e) }))
   tasks.pricing = getPricingData().catch((e: any) => ({ error: 'pricing_error', message: String(e?.message || e) }))
 
   // availability uses RDAP (no OpenProvider dependency)
@@ -53,18 +53,38 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false, error: 'invalid_payload', details: parse.error.format() }, { status: 400 })
   }
   const domain = parse.data.domain
-  return handleDomainInfo(domain)
+    return handleDomainInfo(domain)
 }
 
+import { z } from 'zod'
+import { checkRateLimit } from '@/lib/rate-limit'
+import { getRequestIdHeader } from '@/lib/request-id'
+
+const InfoQuerySchema = z.object({ name: z.string().min(1).max(255) })
+
 export async function GET(request: Request) {
+  const requestId = request.headers.get('x-request-id') ?? getRequestIdHeader()
   try {
     const url = new URL(request.url)
-    const name = url.searchParams.get('name')
-    if (!name) {
-      return NextResponse.json({ success: false, error: 'missing_name_query' }, { status: 400 })
+    const params = Object.fromEntries(url.searchParams.entries())
+    const parsed = InfoQuerySchema.safeParse(params)
+    if (!parsed.success) {
+      console.warn('[api/domain/info] invalid query', { requestId, params })
+      return NextResponse.json({ success: false, error: 'invalid_query', details: parsed.error.flatten() }, { status: 400 })
     }
-    return await handleDomainInfo(name)
+
+    const clientIp = (request.headers.get('x-forwarded-for') || '').split(',')[0] || request.headers.get('x-real-ip') || 'unknown'
+    const rl = await checkRateLimit(`domain:info:${clientIp}`, { windowMs: 5 * 60 * 1000, max: 60, prefix: 'rl' })
+    if (!rl.allowed) {
+      console.warn('[api/domain/info] rate limited', { requestId, clientIp })
+      return NextResponse.json({ success: false, error: 'rate_limited', resetAt: rl.resetAt }, { status: 429 })
+    }
+
+    console.log('[api/domain/info] request', { requestId, query: parsed.data, clientIp })
+    return await handleDomainInfo(parsed.data.name)
   } catch (err: any) {
-    return NextResponse.json({ success: false, error: 'invalid_request', message: String(err?.message || err) }, { status: 400 })
+    console.error('[api/domain/info] unexpected error', { requestId, err })
+    return NextResponse.json({ success: false, error: 'internal', requestId }, { status: 500 })
   }
 }
+
