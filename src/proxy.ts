@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export function middleware(req: NextRequest) {
-  const { pathname, searchParams } = req.nextUrl
+// New Next.js 15+ proxy signature
+export function proxy(request: NextRequest) {
+  const { pathname, searchParams } = request.nextUrl
 
   // Only protect /admin routes
   if (!pathname.startsWith('/admin')) return NextResponse.next()
 
-  const token = searchParams.get('token') || req.headers.get('x-admin-token')
+  const token = searchParams.get('token') || request.headers.get('x-admin-token')
   const expected = process.env.ADMIN_DASHBOARD_TOKEN
 
   if (!expected) {
