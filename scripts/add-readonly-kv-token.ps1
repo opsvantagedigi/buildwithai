@@ -119,7 +119,17 @@ try {
 
     # Final KV health check (non-sensitive)
     Write-Host "`nChecking KV health endpoint..." -ForegroundColor Cyan
-    $curl = Exec-Quiet @('curl','-sS','https://buildwithai.digital/api/kv/health')
+    # Resolve base URL: prefer NEXT_PUBLIC_SITE_URL, then VERCEL_URL, else fallback to canonical domain
+    $base = if ($env:NEXT_PUBLIC_SITE_URL -and -not [string]::IsNullOrWhiteSpace($env:NEXT_PUBLIC_SITE_URL)) {
+        $env:NEXT_PUBLIC_SITE_URL.TrimEnd('/')
+    } elseif ($env:VERCEL_URL -and -not [string]::IsNullOrWhiteSpace($env:VERCEL_URL)) {
+        "https://$($env:VERCEL_URL.TrimEnd('/'))"
+    } else {
+        'https://buildwithai.digital'
+    }
+    $healthUrl = "$base/api/kv/health"
+    Write-Host "Checking: $healthUrl" -ForegroundColor DarkGray
+    $curl = Exec-Quiet @('curl','-sS',$healthUrl)
     if ($curl.ExitCode -ne 0) {
         Write-Warning "KV health check request failed (curl exit $($curl.ExitCode))."
         if ($curl.StdErr) { Write-Warning $curl.StdErr }
