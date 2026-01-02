@@ -16,6 +16,14 @@ try {
 
 const nextConfig: NextConfig = withMDX({
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+  // Allow eval in development for HMR/dev tooling (Turbopack etc.)
+  images: {
+    // loosen CSP only in development so dev HMR that uses eval works in the browser
+    contentSecurityPolicy:
+      process.env.NODE_ENV === 'development'
+        ? "script-src 'self' 'unsafe-eval' 'unsafe-inline'; frame-src 'none'; sandbox;"
+        : "script-src 'self'; frame-src 'none'; sandbox;",
+  },
 });
 
 export default nextConfig;

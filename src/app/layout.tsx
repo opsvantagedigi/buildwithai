@@ -5,6 +5,7 @@ import "@/assets/gds.css";
 import "@/assets/docs.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Script from 'next/script'
 
 
 
@@ -20,6 +21,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Remove attributes injected by browser extensions (e.g. Grammarly) before React hydrates */}
+          <Script
+            id="strip-ext-attrs"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `(() => {
+                try {
+                  const attrs = ['data-new-gr-c-s-check-loaded','data-gr-ext-installed'];
+                  attrs.forEach(a => {
+                    if (document.documentElement && document.documentElement.hasAttribute(a)) {
+                      document.documentElement.removeAttribute(a);
+                    }
+                    if (document.body && document.body.hasAttribute(a)) {
+                      document.body.removeAttribute(a);
+                    }
+                    const els = document.querySelectorAll('[' + a + ']');
+                    els.forEach(e => e.removeAttribute(a));
+                  });
+                } catch (e) {
+                  // ignore
+                }
+              })();`,
+            }}
+          />
+      </head>
       <body className="antialiased font-inter bg-gradient-brand">
         <Header />
         <div className="pt-20 pb-16 min-h-screen">
