@@ -23,29 +23,25 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Remove attributes injected by browser extensions (e.g. Grammarly) before React hydrates */}
-          <Script
-            id="strip-ext-attrs"
-            strategy="beforeInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `(() => {
-                try {
-                  const attrs = ['data-new-gr-c-s-check-loaded','data-gr-ext-installed'];
-                  attrs.forEach(a => {
-                    if (document.documentElement && document.documentElement.hasAttribute(a)) {
-                      document.documentElement.removeAttribute(a);
-                    }
-                    if (document.body && document.body.hasAttribute(a)) {
-                      document.body.removeAttribute(a);
-                    }
-                    const els = document.querySelectorAll('[' + a + ']');
-                    els.forEach(e => e.removeAttribute(a));
-                  });
-                } catch (e) {
-                  // ignore
-                }
-              })();`,
-            }}
-          />
+        <Script id="strip-ext-attrs" strategy="beforeInteractive">
+{`(() => {
+  try {
+    const attrs = ['data-new-gr-c-s-check-loaded','data-gr-ext-installed'];
+    attrs.forEach(a => {
+      if (document.documentElement && document.documentElement.hasAttribute(a)) {
+        document.documentElement.removeAttribute(a);
+      }
+      if (document.body && document.body.hasAttribute(a)) {
+        document.body.removeAttribute(a);
+      }
+      const els = document.querySelectorAll('[' + a + ']');
+      els.forEach(e => e.removeAttribute(a));
+    });
+  } catch (e) {
+    // ignore
+  }
+})();`}
+        </Script>
       </head>
       <body className="antialiased font-inter bg-gradient-brand">
         <Header />

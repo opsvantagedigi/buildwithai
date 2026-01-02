@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "next build",
