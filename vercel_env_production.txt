@@ -1,0 +1,9 @@
+
+ name                        value                       environments                        created    
+ ADMIN_DASHBOARD_TOKEN       Encrypted                   Development, Preview, Production    16h ago    
+ KV_REST_API_TOKEN           Encrypted                   Development, Preview, Production    1d ago     
+ KV_REST_API_URL             Encrypted                   Development, Preview, Production    1d ago     
+ UPSTASH_REDIS_REST_TOKEN    ASHyAAImcDI3YjcwODÔÇª         Production, Preview                 1d ago     
+ UPSTASH_REDIS_REST_URL      https://whole-martÔÇª         Production, Preview                 1d ago     
+ REDIS_URL                   rediss://default:AÔÇª         Production, Preview                 1d ago     
+

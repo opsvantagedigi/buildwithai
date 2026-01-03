@@ -67,3 +67,42 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: var(--site-footer-height);
   min-height: calc(100vh - var(--site-header-height) - var(--site-footer-height));
 }
+
+/* Global typography enforcement */
+h1, h2, h3 {
+  font-family: var(--font-family-headings);
+  line-height: 1.05;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  /* enforce gradient text on major headings */
+  background: linear-gradient(90deg, #0b3b8a 0%, #0bb38a 50%, #f5d300 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Body text defaults */
+p, span, li, a, input, label {
+  font-family: var(--font-family-body);
+  color: rgba(255,255,255,0.85);
+}
+
+/* Spacing presets (tailwind-like helpers for non-tailwind places) */
+.section-py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+.section-py-32 { padding-top: 8rem; padding-bottom: 8rem; }
+.grid-gap-8 { gap: 2rem; }
+.grid-gap-12 { gap: 3rem; }
+
+/* Override legacy gradient utilities that conflict with base color */
+.bg-gradient-brand, .legacy-gradient, .bg-legacy {
+  background: var(--color-base) !important;
+}
+
+/* Utility to apply glass to card containers */
+.card {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+}

@@ -7,11 +7,10 @@ type CardProps = React.HTMLAttributes<HTMLDivElement> & {
 
 export default function Card({ children, className = '', title, header, ...props }: CardProps) {
   const heading = title ?? header
-
   return (
-    <div className={`gds-card ${className}`} role="group" aria-label={typeof heading === 'string' ? String(heading) : undefined} {...props}>
-      {heading ? <div className="gds-card-title">{heading}</div> : null}
-      <div className="gds-card-body">{children}</div>
+    <div className={`card ${className}`} role="group" aria-label={typeof heading === 'string' ? String(heading) : undefined} {...props}>
+      {heading ? <div className="mb-3 text-lg font-semibold gradient-text">{heading}</div> : null}
+      <div className="text-[rgba(255,255,255,0.85)]">{children}</div>
     </div>
   )
 }
