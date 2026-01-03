@@ -12,3 +12,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-headings);
 }
+
+/* Semantic utility to apply the brand heading font where needed */
+.font-heading { font-family: var(--font-family-headings); }
+
+/* Semantic utility for body text if needed */
+.font-body { font-family: var(--font-family-body); }

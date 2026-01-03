@@ -6,6 +6,20 @@ import "@/assets/docs.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from 'next/script'
+import { Inter } from 'next/font/google'
+import { Orbitron } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-default-body',
+  display: 'swap',
+})
+
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  variable: '--font-default-heading',
+  display: 'swap',
+})
 
 
 
@@ -20,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${orbitron.variable}`}>
       <head>
         {/* Remove attributes injected by browser extensions (e.g. Grammarly) before React hydrates */}
         <Script id="strip-ext-attrs" strategy="beforeInteractive">
