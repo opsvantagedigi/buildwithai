@@ -1,0 +1,137 @@
+
+> buildwithai_redesign@0.1.0 build
+> next build
+
+Optional dependency @next/mdx not found ÔÇö continuing without MDX support.
+ÔÜá Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\AjaySidal\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\AjaySidal\buildwithai\package-lock.json
+
+Ôû▓ Next.js 16.1.1 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Optional dependency @next/mdx not found ÔÇö continuing without MDX support.
+Ô£ô Compiled successfully in 6.4s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/88) ...
+  Generating static pages using 11 workers (22/88) 
+  Generating static pages using 11 workers (44/88) 
+  Generating static pages using 11 workers (66/88) 
+Ô£ô Generating static pages using 11 workers (88/88) in 1237.8ms
+  Finalizing page optimization ...
+
+Route (app)
+Ôöî Ôùï /
+Ôö£ Ôùï /_not-found
+Ôö£ ãÆ /[slug]
+Ôö£ Ôùï /about
+Ôö£ Ôùï /admin/builder
+Ôö£ Ôùï /admin/domains
+Ôö£ Ôùï /admin/kv
+Ôö£ Ôùï /affiliates
+Ôö£ Ôùï /ai-website-builder
+Ôö£ ãÆ /api/ai/brand
+Ôö£ ãÆ /api/ai/content
+Ôö£ ãÆ /api/ai/page/generate
+Ôö£ ãÆ /api/ai/section/generate
+Ôö£ ãÆ /api/ai/site/generate
+Ôö£ ãÆ /api/analytics/conversions
+Ôö£ ãÆ /api/analytics/funnels
+Ôö£ ãÆ /api/analytics/replay
+Ôö£ ãÆ /api/analytics/rollup
+Ôö£ ãÆ /api/cron/warm
+Ôö£ ãÆ /api/debug/health
+Ôö£ ãÆ /api/debug/kv
+Ôö£ ãÆ /api/debug/kv/raw
+Ôö£ ãÆ /api/debug/kv/status
+Ôö£ ãÆ /api/debug/rl
+Ôö£ ãÆ /api/debug/rl/probe
+Ôö£ ãÆ /api/domain/check
+Ôö£ ãÆ /api/domain/dns
+Ôö£ ãÆ /api/domain/info
+Ôö£ ãÆ /api/domain/pricing
+Ôö£ ãÆ /api/domain/rdap
+Ôö£ ãÆ /api/domain/register
+Ôö£ ãÆ /api/domain/whois
+Ôö£ ãÆ /api/kv/health
+Ôö£ ãÆ /api/kv/warm
+Ôö£ ãÆ /api/publish
+Ôö£ ãÆ /api/publish/changelog
+Ôö£ ãÆ /api/publish/history
+Ôö£ ãÆ /api/publish/preview
+Ôö£ ãÆ /api/publish/promote
+Ôö£ ãÆ /api/publish/release-notes
+Ôö£ ãÆ /api/publish/rollback
+Ôö£ ãÆ /api/publish/staging
+Ôö£ ãÆ /api/sites
+Ôö£ ãÆ /api/sites/[id]/changelog
+Ôö£ ãÆ /api/sites/[id]/settings
+Ôö£ ãÆ /api/templates/create
+Ôö£ ãÆ /api/templates/list
+Ôö£ ãÆ /api/track
+Ôö£ ãÆ /api/version
+Ôö£ Ôùï /blog
+Ôö£ Ôùï /builder
+Ôö£ Ôùï /builder/domain
+Ôö£ Ôùï /builder/settings
+Ôö£ ãÆ /builder/site/[id]
+Ôö£ Ôùï /builder/start
+Ôö£ Ôùï /careers
+Ôö£ Ôùï /case-studies
+Ôö£ Ôùï /compare/10web-vs-shopify
+Ôö£ Ôùï /compare/10web-vs-squarespace
+Ôö£ Ôùï /compare/10web-vs-wix
+Ôö£ Ôùï /compare/10web-vs-wordpress
+Ôö£ Ôùï /compare/ai-website-builders
+Ôö£ Ôùï /contact
+Ôö£ Ôùï /dashboard
+Ôö£ Ôùï /docs
+Ôö£ ãÆ /docs/[...slug]
+Ôö£ Ôùï /docs/admin
+Ôö£ Ôùï /docs/ai
+Ôö£ Ôùï /docs/builder
+Ôö£ Ôùï /docs/domains
+Ôö£ Ôùï /docs/platform
+Ôö£ Ôùï /domains
+Ôö£ ãÆ /domains/[name]
+Ôö£ Ôùï /ecommerce-ai-builder
+Ôö£ Ôùï /features
+Ôö£ Ôùï /gds-test
+Ôö£ Ôùï /help-center
+Ôö£ Ôùï /pricing
+Ôö£ Ôùï /privacy-policy
+Ôö£ Ôùï /releases
+Ôö£ ãÆ /releases/[version]
+Ôö£ ãÆ /site/[id]/analytics
+Ôö£ ãÆ /site/[id]/changelog
+Ôö£ ãÆ /site/[id]/settings
+Ôö£ Ôùï /templates
+Ôö£ Ôùï /templates/agency
+Ôö£ Ôùï /templates/coaching
+Ôö£ Ôùï /templates/ecommerce
+Ôö£ Ôùï /templates/fitness
+Ôö£ Ôùï /templates/personal-brand
+Ôö£ Ôùï /templates/photography
+Ôö£ Ôùï /templates/portfolio
+Ôö£ Ôùï /templates/real-estate
+Ôö£ Ôùï /templates/restaurant
+Ôö£ Ôùï /terms
+Ôö£ Ôùï /trust-center
+Ôöö Ôùï /wordpress-ai-builder
+
+
+ãÆ Proxy (Middleware)
+
+Ôùï  (Static)   prerendered as static content
+ãÆ  (Dynamic)  server-rendered on demand
+
+
+> buildwithai_redesign@0.1.0 postbuild
+> node scripts/check-kv.js || echo "[KV CHECK] check failed or skipped"
+
+[KV CHECK] Non-production environment; skipping strict KV check.
