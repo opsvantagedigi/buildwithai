@@ -10,20 +10,8 @@ import "dotenv/config";
 // Use the project's KV adapter so local tests use the same backend configuration
 import { kv as appKv } from "../src/lib/kv";
 
-// Wait for local dev server to be reachable before continuing so tests
-// don't fail with transient ECONNREFUSED errors.
-async function waitForServer(url: string, retries = 30, delay = 300) {
-  for (let i = 0; i < retries; i++) {
-    try {
-      const res = await fetch(url, { method: "HEAD" });
-      if (res.ok || res.status === 404) return true;
-    } catch (_) {
-      // ignore and retry
-    }
-    await new Promise((r) => setTimeout(r, delay));
-  }
-  throw new Error("Dev server not reachable after retries");
-}
+// NOTE: This script no longer starts or waits for a local dev server.
+// It targets a deployed environment via TEST_BASE_URL.
 
 // Retry wrapper for KV reads to handle eventual consistency / timing.
 async function retryKvGet(key: string, retries = 20, delay = 300) {
@@ -51,23 +39,35 @@ async function main() {
 
   console.log(`\n🔍 Testing publish pipeline for site: ${siteId}\n`);
 
+  // Use TEST_BASE_URL if provided; otherwise default to production domain.
+  const baseUrl =
+    process.env.TEST_BASE_URL?.trim() ||
+    "https://www.buildwithai.digital";
+
+  console.log("🔗 Using TEST_BASE_URL:", baseUrl);
+
   // 1. Trigger publish
   console.log("📡 Calling /api/publish ...");
 
-  const base = process.env.NEXT_PUBLIC_BASE_URL || process.env.BASE_URL || "http://localhost:3000";
-
-  // Wait for the dev server to be reachable before firing the publish request.
-  await waitForServer(base);
-
-  const publishRes = await fetch(`${base}/api/publish`, {
+  let publishRes: Response;
+  try {
+    publishRes = await fetch(`${baseUrl}/api/publish`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ siteId }),
   });
 
+  } catch (err) {
+    console.error("❌ Failed to call /api/publish:", err);
+    process.exitCode = 2;
+    return;
+  }
+
   if (!publishRes.ok) {
     console.error("❌ Publish API returned an error:");
-    console.error(await publishRes.text());
+    try {
+      console.error(await publishRes.text());
+    } catch (_) {}
     process.exitCode = 2;
     return;
   }
