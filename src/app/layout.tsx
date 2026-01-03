@@ -11,12 +11,14 @@ import { Orbitron } from 'next/font/google'
 
 const inter = Inter({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-default-body',
   display: 'swap',
 })
 
 const orbitron = Orbitron({
   subsets: ['latin'],
+  weight: ['400', '700'],
   variable: '--font-default-heading',
   display: 'swap',
 })
