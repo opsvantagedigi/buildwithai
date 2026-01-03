@@ -16,7 +16,9 @@ jobs:
           node-version: 20
 
       - name: Setup PowerShell
-        uses: PowerShell/PowerShell@v2
+        uses: actions/setup-pwsh@v2
+        with:
+          pwsh-version: '7.4.x'
 
       - name: Inject Vercel environment variables
         run: |
