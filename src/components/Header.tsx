@@ -1,12 +1,15 @@
 import Link from 'next/link'
 import React from "react";
+import { Orbitron } from 'next/font/google'
+
+const orbitron = Orbitron({ subsets: ['latin'], weight: ['400','700','900'], display: 'swap' })
 
 export default function Header() {
   return (
     <header className="backdrop-blur-md bg-white/20 border-b border-white/30 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
-          <span className="text-2xl font-orbitron font-bold bg-gradient-to-r from-brand-blue via-brand-green to-brand-yellow bg-clip-text text-transparent tracking-widest">BUILD WITH AI</span>
+          <span className={`${orbitron.className} text-2xl font-bold bg-gradient-to-r from-brand-blue via-brand-green to-brand-yellow bg-clip-text text-transparent tracking-widest`}>BUILD WITH AI</span>
         </div>
         <nav className="flex gap-6 text-base font-inter">
           <Link href="/products" className="hover:text-brand-blue transition">Products</Link>

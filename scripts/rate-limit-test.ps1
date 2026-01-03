@@ -1,4 +1,11 @@
 $base = "https://buildwithairedesign-dkz1gvbc1-ajay-sidals-projects-132aa3d1.vercel.app"
+$adminToken = $env:ADMIN_DASHBOARD_TOKEN
+
+if (-not $adminToken) {
+  Write-Error "ADMIN_DASHBOARD_TOKEN environment variable is not set."
+  exit 1
+}
+
 $endpoints = @(
   "/api/domain/info?name=example.com",
   "/api/domain/rdap?name=example.com",
@@ -16,7 +23,7 @@ foreach ($ep in $endpoints) {
     try {
       $nonce = [DateTime]::UtcNow.Ticks.ToString() + "-" + $i
       $url = $base + $ep + "&_=" + $nonce
-      $resp = Invoke-WebRequest -Uri $url -Method GET -UseBasicParsing -Headers @{ Accept = 'application/json' } -TimeoutSec 30
+      $resp = Invoke-WebRequest -Uri $url -Method GET -UseBasicParsing -Headers @{ Accept = 'application/json'; 'x-admin-token' = $adminToken } -TimeoutSec 30
       if ($resp.StatusCode -ne $null) { $status = $resp.StatusCode }
       else { $status = 200 }
     } catch [System.Net.WebException] {

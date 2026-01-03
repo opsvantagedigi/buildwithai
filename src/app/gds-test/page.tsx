@@ -9,7 +9,7 @@ import ReleaseCard from '@/components/gds/ReleaseCard'
 export default function GdsTestPage(){
   return (
     <main style={{padding:32}}>
-      <h1 style={{fontFamily:'Orbitron, system-ui',fontSize:24}}>GDS Smoke Test</h1>
+      <h1 style={{fontFamily:'var(--font-family-headings)',fontSize:24}}>GDS Smoke Test</h1>
 
       <section style={{marginTop:20}}>
         <Nav items={[{href:'/',label:'Home'},{href:'/builder',label:'Builder'},{href:'/domains',label:'Domains'}]} />

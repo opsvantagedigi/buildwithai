@@ -1,11 +1,15 @@
 import { NextResponse } from 'next/server'
 import { kv, getKvStatus } from '@/lib/kv'
+import { requireAdminAuth } from '@/lib/admin-auth'
 
 // Non-destructive status endpoint for KV write capability.
 // Returns configuration flags and attempts a non-destructive write-read
 // if writes appear enabled. Does not expose secrets.
 
-export async function GET() {
+export async function GET(request: Request) {
+  const auth = requireAdminAuth(request)
+  if (!auth.ok) return NextResponse.json(auth.body, { status: auth.status })
+
   const status = getKvStatus()
 
   // Basic response with flags
@@ -37,6 +41,7 @@ export async function GET() {
   } else {
     resBody.testWrite = null
   }
+  console.log('[DEBUG KV STATUS] Probe', { kvClientPresent: status.kvClientPresent })
 
   return NextResponse.json(resBody)
 }

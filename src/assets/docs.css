@@ -13,7 +13,7 @@
 
 /* Headings */
 .docs-prose h1 {
-  font-family: Orbitron, sans-serif;
+  font-family: var(--font-family-headings);
   font-size: var(--font-size-4xl);
   margin-bottom: var(--space-4);
   margin-top: var(--space-8);
@@ -21,7 +21,7 @@
 }
 
 .docs-prose h2 {
-  font-family: Orbitron, sans-serif;
+  font-family: var(--font-family-headings);
   font-size: var(--font-size-3xl);
   margin-top: var(--space-8);
   margin-bottom: var(--space-3);
@@ -29,7 +29,7 @@
 }
 
 .docs-prose h3 {
-  font-family: Orbitron, sans-serif;
+  font-family: var(--font-family-headings);
   font-size: var(--font-size-2xl);
   margin-top: var(--space-6);
   margin-bottom: var(--space-2);
@@ -124,7 +124,7 @@
 }
 
 .docs-section h4 {
-  font-family: Orbitron, sans-serif;
+  font-family: var(--font-family-headings);
   font-size: var(--font-size-lg);
   margin-bottom: var(--space-3);
   color: var(--color-neutral-700);

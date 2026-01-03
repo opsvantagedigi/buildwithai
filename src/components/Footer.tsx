@@ -1,12 +1,15 @@
 import Link from 'next/link'
 import React from "react";
+import { Orbitron } from 'next/font/google'
+
+const orbitron = Orbitron({ subsets: ['latin'], weight: ['400','700','900'], display: 'swap' })
 
 export default function Footer() {
   return (
     <footer className="backdrop-blur-md bg-white/20 border-t border-white/30 shadow-inner mt-16">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm text-white/90">
         <div>
-          <span className="text-xl font-orbitron font-bold bg-gradient-to-r from-brand-blue via-brand-green to-brand-yellow bg-clip-text text-transparent">BUILD WITH AI</span>
+          <span className={`${orbitron.className} text-xl font-bold bg-gradient-to-r from-brand-blue via-brand-green to-brand-yellow bg-clip-text text-transparent`}>BUILD WITH AI</span>
           <p className="mt-2 text-white/70">© {new Date().getFullYear()} OpsVantage Digital. All rights reserved.</p>
         </div>
         <div>

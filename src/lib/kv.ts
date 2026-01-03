@@ -126,14 +126,35 @@ export const kv = {
     if (!kvClient) return null
     try {
       const v = await kvClient.get(key)
+      // Normalize multiple possible shapes returned by different clients
+      //  - raw primitive (number/string)
+      //  - JSON string ("{...}")
+      //  - wrapped object like { value: "..." }
+      if (v === null || v === undefined) return null
+
+      let parsed: any = v
       if (typeof v === 'string') {
         try {
-          return JSON.parse(v)
+          parsed = JSON.parse(v)
         } catch (_) {
-          return v
+          parsed = v
         }
       }
-      return v
+
+      // If the stored value is wrapped as { value: "..." }, unwrap it.
+      if (parsed && typeof parsed === 'object' && 'value' in parsed) {
+        const inner = parsed.value
+        if (typeof inner === 'string') {
+          try {
+            return JSON.parse(inner)
+          } catch (_) {
+            return inner
+          }
+        }
+        return inner
+      }
+
+      return parsed
     } catch (_) {
       return null
     }
@@ -142,8 +163,10 @@ export const kv = {
     if (!kvClient) return null
     if (NO_WRITE_FALLBACK) return { skippedReadOnly: true }
     try {
-      const v = typeof value === 'string' ? value : JSON.stringify(value)
-      const setResult = await kvClient.set(key, v)
+      // Avoid double-encoding: pass raw values to the underlying client and
+      // let that client (or our Upstash REST wrapper) handle any required
+      // encoding. This prevents nested JSON like "{\"value\":\"1\"}".
+      const setResult = await kvClient.set(key, value)
       if (opts?.ex && typeof kvClient.expire === 'function') {
         try {
           await kvClient.expire(key, Math.ceil(opts.ex))

@@ -7,8 +7,8 @@ export type RateLimitResult = {
   resetAt: number
 }
 
-const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL?.replace(/\/$/, '')
-const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN
+const UPSTASH_URL = (process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL || process.env.KV_REST_API_URL)?.replace(/\/$/, '')
+const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN || process.env.KV_REST_API_WRITE_TOKEN
 
 export type RateLimitOptions = {
   windowMs: number
@@ -36,7 +36,20 @@ export async function checkRateLimit(key: string, options: RateLimitOptions): Pr
     let current = 0
     if (getRes.ok) {
       const j = await getRes.json()
-      current = Number(j.result ?? 0)
+      let resVal: any = j.result ?? 0
+      if (typeof resVal === 'string') {
+        try {
+          const parsed = JSON.parse(resVal)
+          if (parsed && typeof parsed === 'object' && 'value' in parsed) {
+            resVal = parsed.value
+          } else {
+            resVal = parsed
+          }
+        } catch (_) {
+          // leave as string
+        }
+      }
+      current = Number(resVal ?? 0)
     }
 
     if (current >= max) {
