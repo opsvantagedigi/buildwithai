@@ -1,21 +1,25 @@
 "use client";
 
 import React from "react";
+import Hero from "@/components/marketing/Hero";
+import FeatureGrid from "@/components/marketing/FeatureGrid";
+import CTA from "@/components/marketing/CTA";
+import FAQ from "@/components/marketing/FAQ";
+import SocialProof from "@/components/marketing/SocialProof";
 
 type Block = { id: string; type: string; data: any };
 
 export default function BlockRenderer({ block }: { block: Block }) {
-  switch (block.type) {
-    case "hero":
-      return (
-        <div className="py-12">
-          <h1 className="text-2xl font-bold">{block.data.title || "Hero Title"}</h1>
-          <p className="text-slate-600">{block.data.subtitle || "Subtitle"}</p>
-        </div>
-      );
-    case "text":
-      return <div className="prose" dangerouslySetInnerHTML={{ __html: block.data.html || "<p>Text block</p>" }} />;
-    default:
-      return <div className="text-sm text-slate-500">Unknown block type: {block.type}</div>;
-  }
+  const { type, data } = block;
+
+  if (type === "hero") return <Hero {...(data || {})} />;
+  if (type === "features") return <FeatureGrid items={(data?.features) || []} />;
+  if (type === "cta") return <CTA {...(data || {})} />;
+  if (type === "faq") return <FAQ items={(data?.items) || []} />;
+  if (type === "social-proof") return <SocialProof {...(data || {})} />;
+
+  if (type === "text") return <div className="prose" dangerouslySetInnerHTML={{ __html: data?.html || "<p>Text block</p>" }} />;
+
+  return <div className="text-sm text-slate-500">Unknown block type: {type}</div>;
 }
+
