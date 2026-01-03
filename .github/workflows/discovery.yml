@@ -59,7 +59,7 @@ jobs:
             echo "$body"
 
             if [ "$status" -eq 200 ]; then
-              ok=$(echo "$body" | jq -r '.ok // empty')
+              ok=$(echo "$body" | jq -r '.success // empty')
 
               if [ "$ok" = "true" ]; then
                 echo "✅ KV health check passed (status: $status, ok=$ok)"
