@@ -10,12 +10,26 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
       },
       backgroundImage: {
-        'gradient-brand': 'linear-gradient(90deg, #00c6fb 0%, #05dfd7 50%, #f5d300 100%)',
+        'brand-gradient': 'linear-gradient(90deg,#011A4B,#00594C 55%,#FFD23F)',
       },
       colors: {
-        'brand-blue': '#00c6fb',
-        'brand-green': '#05dfd7',
-        'brand-yellow': '#f5d300',
+        'brand-blue': '#011A4B',
+        'brand-green': '#00594C',
+        'brand-yellow': '#FFD23F',
+      },
+      keyframes: {
+        gradientShift: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '100%': { backgroundPosition: '100% 50%' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'gradient-slow': 'gradientShift 12s ease-in-out infinite alternate',
+        'fade-in-up': 'fadeInUp 0.6s cubic-bezier(.2,.9,.3,1) both',
       },
     },
   },
