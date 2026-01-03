@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getTemplate } from "@/lib/templates/registry";
 import landing from "@/lib/templates/blueprints/landing.json";
 import portfolio from "@/lib/templates/blueprints/portfolio.json";
-import { saveSite } from "@/lib/builder/save";
+import { saveSite } from "../../../../lib/builder/save";
 import { registerSite } from "@/lib/sites/registry";
 
 const BLUEPRINTS: Record<string, any> = {
