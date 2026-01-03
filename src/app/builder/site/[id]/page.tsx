@@ -1,31 +1,40 @@
-import React from 'react'
-import BuilderSidebar from '@/components/gds/BuilderSidebar'
-import BuilderToolbar from '@/components/gds/BuilderToolbar'
-import AISectionControls from '@/components/gds/AISectionControls'
-import BrandingControls from '@/components/gds/BrandingControls'
+"use client"
+
+import React, { useState } from "react"
+import Sidebar from '@/components/builder/Sidebar'
+import Canvas from '@/components/builder/Canvas'
+import { DomainSidebar } from '@/components/domain/DomainSidebar'
 
 type Props = { params: { id: string } }
 
 export default function BuilderCanvas({ params }: Props){
+  const [blocks, setBlocks] = useState<any[]>([
+    { id: 'b1', type: 'hero', data: { title: 'Welcome', subtitle: 'Start editing' } }
+  ])
+
+  function handleAdd(type: string){
+    const id = `b${Date.now()}`
+    setBlocks((s)=>[...s,{id,type,data:{}}])
+  }
+
   return (
     <>
-      <BuilderToolbar onPreview={()=>console.log('Preview')} onPublish={()=>console.log('Publish')} />
+      <div className="p-4 flex items-center justify-between">
+        <h1 className="text-lg font-semibold">Builder — {params.id}</h1>
+        <div className="flex gap-2">
+          <button className="gds-btn" onClick={()=>alert('Preview')}>Preview</button>
+          <button className="gds-btn gds-btn-primary" onClick={()=>alert('Publish stub')}>Publish</button>
+        </div>
+      </div>
 
-      <main className="builder-canvas" style={{display:'grid',gridTemplateColumns:'260px 1fr 320px',gap:16,padding:24}}>
-        <BuilderSidebar />
+      <main className="builder-canvas" style={{display:'grid',gridTemplateColumns:'280px 1fr 320px',gap:16,padding:24}}>
+        <Sidebar onAdd={handleAdd} />
 
-        <section className="builder-preview" style={{background:'#fff',padding:16,borderRadius:8}}>
-          <iframe src="/preview" className="builder-iframe" style={{width:'100%',height:600,border:'none'}} />
-
-          <AISectionControls onRegenerate={()=>console.log('Regenerate section')} onRewrite={()=>console.log('Rewrite text')} />
-
-          <BrandingControls onColorChange={(v)=>console.log('Color theme:',v)} onToneChange={(v)=>console.log('Tone:',v)} />
+        <section>
+          <Canvas blocks={blocks} />
         </section>
 
-        <aside style={{padding:16}}>
-          <h3>AI Suggestions</h3>
-          <p>Regenerate a section or update tone.</p>
-        </aside>
+        <DomainSidebar currentDomain={undefined} />
       </main>
     </>
   )
