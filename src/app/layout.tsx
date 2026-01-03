@@ -8,6 +8,7 @@ const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-orbitron' });
 import "./globals.css";
 import "@/assets/gds.css";
 import "@/assets/docs.css";
+import "../../styles/landing.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from 'next/script'
@@ -25,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${orbitron.variable}`}>
+    <html lang="en" className="font-inter">
       <head>
         {/* Remove attributes injected by browser extensions (e.g. Grammarly) before React hydrates */}
         <Script id="strip-ext-attrs" strategy="beforeInteractive">
@@ -47,8 +48,22 @@ export default function RootLayout({
   }
 })();`}
         </Script>
+        <link
+          rel="preload"
+          href="/fonts/Orbitron-VariableFont_wght.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Inter-VariableFont_slnt,wght.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
       </head>
-      <body className="antialiased">
+      <body className="antialiased bg-black text-white">
         <Header />
         <div className="site-content">
           {children}
