@@ -4,7 +4,8 @@
 
 body {
   font-family: var(--font-family-body);
-  background: linear-gradient(120deg, #00c6fb 0%, #05dfd7 50%, #f5d300 100%);
+  background-color: #0A0F1F; /* Charcoal Blue base */
+  color: #E6EEF3;
   min-height: 100vh;
 }
 
@@ -38,4 +39,31 @@ h1, h2, h3, h4, h5, h6 {
 :root {
   --font-family-body: 'InterLocal', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   --font-family-headings: 'OrbitronLocal', 'InterLocal', system-ui, sans-serif;
+  --site-header-height: 72px;
+  --site-footer-height: 140px;
+  --color-base: #0A0F1F;
+  --glass-bg: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.08);
+}
+
+/* Gradient text utility (Orbitron headings use this) */
+.gradient-text {
+  background: linear-gradient(90deg, #0b3b8a 0%, #0bb38a 50%, #f5d300 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glassmorphism helper */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+}
+
+/* Layout helpers to account for fixed header/footer */
+.site-content {
+  padding-top: var(--site-header-height);
+  padding-bottom: var(--site-footer-height);
+  min-height: calc(100vh - var(--site-header-height) - var(--site-footer-height));
 }

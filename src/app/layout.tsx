@@ -48,9 +48,9 @@ export default function RootLayout({
 })();`}
         </Script>
       </head>
-      <body className="antialiased bg-gradient-brand">
+      <body className="antialiased">
         <Header />
-        <div className="pt-20 pb-16 min-h-screen">
+        <div className="site-content">
           {children}
         </div>
         <Footer />

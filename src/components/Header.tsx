@@ -3,23 +3,21 @@ import React from "react";
 
 export default function Header() {
   return (
-    <header className="backdrop-blur-md bg-white/20 border-b border-white/30 shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 glass">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6" style={{height: 'var(--site-header-height)'}}>
         <div className="flex items-center gap-3">
-          <span className="font-heading text-2xl font-bold bg-gradient-to-r from-brand-blue via-brand-green to-brand-yellow bg-clip-text text-transparent tracking-widest">BUILD WITH AI</span>
+          <Link href="/" className="inline-block">
+            <span className="font-heading text-2xl font-bold gradient-text tracking-widest">BUILD WITH AI</span>
+          </Link>
         </div>
-        <nav className="flex gap-6 text-base font-inter">
-          <Link href="/dashboard" className="hover:text-white transition">Dashboard</Link>
-          <Link href="/products" className="hover:text-brand-blue transition">Products</Link>
-          <Link href="/features" className="hover:text-brand-green transition">Features</Link>
-          <Link href="/ai-tools" className="hover:text-brand-yellow transition">AI Tools</Link>
-          <Link href="/wordpress" className="hover:text-brand-blue transition">WordPress</Link>
-          <Link href="/platform" className="hover:text-brand-green transition">Platform</Link>
-          <Link href="/solutions" className="hover:text-brand-yellow transition">Solutions</Link>
-          <Link href="/resources" className="hover:text-brand-blue transition">Resources</Link>
-          <Link href="/company" className="hover:text-brand-green transition">Company</Link>
-          <Link href="/pricing" className="ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-brand-blue via-brand-green to-brand-yellow text-white font-bold shadow hover:scale-105 transition">Pricing</Link>
+        <nav className="hidden md:flex gap-6 text-base font-inter items-center">
+          <Link href="/dashboard" className="hover:drop-shadow-[0_0_8px_rgba(11,179,138,0.6)] transition">Dashboard</Link>
+          <Link href="/features" className="hover:drop-shadow-[0_0_8px_rgba(11,179,138,0.6)] transition">Features</Link>
+          <Link href="/pricing" className="ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-[#0b3b8a] via-[#0bb38a] to-[#f5d300] text-black font-bold shadow hover:scale-105 transition">Get Started</Link>
         </nav>
+        <div className="md:hidden">
+          {/* mobile menu placeholder */}
+        </div>
       </div>
     </header>
   );

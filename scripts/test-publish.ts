@@ -7,7 +7,37 @@
 //
 
 import "dotenv/config";
-import kv from "@vercel/kv";
+// Use the project's KV adapter so local tests use the same backend configuration
+import { kv as appKv } from "../src/lib/kv";
+
+// Wait for local dev server to be reachable before continuing so tests
+// don't fail with transient ECONNREFUSED errors.
+async function waitForServer(url: string, retries = 30, delay = 300) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const res = await fetch(url, { method: "HEAD" });
+      if (res.ok || res.status === 404) return true;
+    } catch (_) {
+      // ignore and retry
+    }
+    await new Promise((r) => setTimeout(r, delay));
+  }
+  throw new Error("Dev server not reachable after retries");
+}
+
+// Retry wrapper for KV reads to handle eventual consistency / timing.
+async function retryKvGet(key: string, retries = 20, delay = 300) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const value = await appKv.get(key);
+      if (value) return value;
+    } catch (_) {
+      // ignore and retry
+    }
+    await new Promise((r) => setTimeout(r, delay));
+  }
+  throw new Error(`Snapshot not available after ${retries} retries`);
+}
 
 async function main() {
   const siteId = process.argv[2];
@@ -25,6 +55,9 @@ async function main() {
   console.log("📡 Calling /api/publish ...");
 
   const base = process.env.NEXT_PUBLIC_BASE_URL || process.env.BASE_URL || "http://localhost:3000";
+
+  // Wait for the dev server to be reachable before firing the publish request.
+  await waitForServer(base);
 
   const publishRes = await fetch(`${base}/api/publish`, {
     method: "POST",
@@ -55,7 +88,7 @@ async function main() {
 
   console.log(`\n📦 Fetching snapshot from KV: ${snapshotKey}`);
 
-  const html = await kv.get<string>(snapshotKey);
+  const html = await retryKvGet(snapshotKey);
 
   if (!html) {
     console.error("❌ No HTML snapshot found in KV for key:", snapshotKey);

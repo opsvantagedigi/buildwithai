@@ -51,13 +51,22 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "tracking_validation_failed" }, { status: 422 });
     }
 
-    // Trigger Vercel Deploy Hook
-    const result = await triggerVercelDeploy(siteId, exported);
-    if (!result.ok) {
-      return NextResponse.json(
-        { error: result.error ?? "Failed to trigger deploy" },
-        { status: 500 }
-      );
+    // Trigger Vercel Deploy Hook. In local dev we may not have a hook URL —
+    // skip the remote trigger but continue the publish flow so snapshots
+    // and metadata are still recorded for local validation.
+    let skippedDeploy = false;
+    let result: { ok: boolean; error?: string } | null = null;
+    if (!process.env.VERCEL_DEPLOY_HOOK_URL) {
+      console.warn("[publish] No VERCEL_DEPLOY_HOOK_URL — skipping deploy trigger (local dev)");
+      skippedDeploy = true;
+    } else {
+      result = await triggerVercelDeploy(siteId, exported);
+      if (!result.ok) {
+        return NextResponse.json(
+          { error: result.error ?? "Failed to trigger deploy" },
+          { status: 500 }
+        );
+      }
     }
 
     // Save publish metadata
