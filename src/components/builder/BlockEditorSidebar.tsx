@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import type { Block as BuilderBlock } from "@/types/builder";
+import type { BuilderBlock } from "@/types/builder";
 import { ImageField } from "./editors/ImageField";
 import { TextField } from "./editors/TextField";
 import { FeatureListEditor } from "./editors/FeatureListEditor";
