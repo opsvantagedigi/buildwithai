@@ -28,5 +28,6 @@ export async function GET(req: Request) {
   await saveSite(siteId, blueprint);
   await registerSite(siteId, `New ${templateId} site`);
 
-  return NextResponse.redirect(`/builder/site/${siteId}`);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  return NextResponse.redirect(`${baseUrl}/builder/site/${siteId}`);
 }
