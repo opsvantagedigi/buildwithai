@@ -6,21 +6,26 @@ import "@/assets/docs.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from 'next/script'
-import { Inter } from 'next/font/google'
-import { Orbitron } from 'next/font/google'
+import localFont from 'next/font/local'
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-default-body',
-  display: 'swap',
+const inter = localFont({
+  src: [
+    { path: '../fonts/inter/Inter-Regular.woff2', weight: '400' },
+    { path: '../fonts/inter/Inter-Medium.woff2', weight: '500' },
+    { path: '../fonts/inter/Inter-SemiBold.woff2', weight: '600' },
+    { path: '../fonts/inter/Inter-Bold.woff2', weight: '700' },
+  ],
+  variable: '--font-family-body',
 })
 
-const orbitron = Orbitron({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-default-heading',
-  display: 'swap',
+const orbitron = localFont({
+  src: [
+    { path: '../fonts/orbitron/Orbitron-Regular.woff2', weight: '400' },
+    { path: '../fonts/orbitron/Orbitron-Medium.woff2', weight: '500' },
+    { path: '../fonts/orbitron/Orbitron-SemiBold.woff2', weight: '600' },
+    { path: '../fonts/orbitron/Orbitron-Bold.woff2', weight: '700' },
+  ],
+  variable: '--font-family-headings',
 })
 
 
@@ -59,7 +64,7 @@ export default function RootLayout({
 })();`}
         </Script>
       </head>
-      <body className="antialiased font-inter bg-gradient-brand">
+      <body className="antialiased bg-gradient-brand">
         <Header />
         <div className="pt-20 pb-16 min-h-screen">
           {children}
