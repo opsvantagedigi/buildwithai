@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { loadSiteState } from "@/lib/builder/load";
 import { exportSiteToStatic } from "@/lib/export/site";
+import { injectTracking } from "@/lib/publisher/inject-tracking";
+import { validateTracking } from "@/lib/publisher/validate-tracking";
 import { triggerVercelDeploy } from "@/lib/publish/vercel";
 import { kv } from "@/lib/kv";
 import type { PublishMetadata } from "@/types/publish";
@@ -13,6 +15,7 @@ import { updateSiteTimestamp } from "@/lib/sites/registry";
 const PUBLISH_KEY_PREFIX = "buildwithai:site:publish:";
 const PUBLISH_HISTORY_PREFIX = "buildwithai:site:publish:history:";
 const VERSION_SNAPSHOT_PREFIX = "buildwithai:site:versions:";
+const PUBLISH_HTML_SNAPSHOT_PREFIX = "buildwithai:site:html_snapshot:";
 
 export async function POST(req: NextRequest) {
   try {
@@ -39,6 +42,14 @@ export async function POST(req: NextRequest) {
 
     // Export site (currently not uploaded; used for future enhancements)
     const exported = exportSiteToStatic(state);
+
+    // Inject tracking into exported HTML
+    const finalHtml = injectTracking(exported.html, siteId);
+
+    // Validate injection before proceeding
+    if (!validateTracking(finalHtml)) {
+      return NextResponse.json({ error: "tracking_validation_failed" }, { status: 422 });
+    }
 
     // Trigger Vercel Deploy Hook
     const result = await triggerVercelDeploy(siteId, exported);
@@ -112,6 +123,12 @@ export async function POST(req: NextRequest) {
     };
 
     await kv.set(snapshotKey, snapshot);
+
+    // Store HTML snapshot (with tracking injected)
+    if (metadata.lastPublishedVersion) {
+      const htmlKey = `${PUBLISH_HTML_SNAPSHOT_PREFIX}${siteId}:${metadata.lastPublishedVersion}`;
+      await kv.set(htmlKey, finalHtml);
+    }
 
     // Generate release notes (best-effort)
     const releaseNotes = await generateReleaseNotesWithOllama({
