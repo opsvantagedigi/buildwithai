@@ -34,6 +34,51 @@ jobs:
           echo "KV_REST_API_TOKEN=${{ secrets.KV_REST_API_TOKEN }}" >> $GITHUB_ENV
           echo "ADMIN_DASHBOARD_TOKEN=${{ secrets.ADMIN_DASHBOARD_TOKEN }}" >> $GITHUB_ENV
           echo "KV_HEALTH_URL=${{ secrets.KV_HEALTH_URL }}" >> $GITHUB_ENV
+          echo "TEST_BASE_URL=https://www.buildwithai.digital" >> $GITHUB_ENV
+
+      - name: Install jq
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y jq
+
+      - name: Health check — KV endpoint
+        run: |
+          echo "Checking KV health at: $TEST_BASE_URL/api/kv/health"
+
+          attempts=3
+          delay=2
+
+          for i in $(seq 1 $attempts); do
+            echo "Attempt $i of $attempts..."
+            response=$(curl -s -w " HTTP_STATUS:%{http_code}" "$TEST_BASE_URL/api/kv/health")
+            body=$(echo "$response" | sed -e 's/ HTTP_STATUS:.*//g')
+            status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTP_STATUS://')
+
+            echo "Status: $status"
+            echo "Body:"
+            echo "$body"
+
+            if [ "$status" -eq 200 ]; then
+              ok=$(echo "$body" | jq -r '.ok // empty')
+
+              if [ "$ok" = "true" ]; then
+                echo "✅ KV health check passed (status: $status, ok=$ok)"
+                exit 0
+              else
+                echo "⚠️ KV health returned 200 but ok!=true (ok=$ok)."
+                echo "Full response body logged above."
+              fi
+            else
+              echo "⚠️ KV health returned non-200 status: $status"
+              echo "Full response body logged above."
+            fi
+
+            echo "Retrying in ${delay}s..."
+            sleep $delay
+          done
+
+          echo "❌ KV health check FAILED after $attempts attempts."
+          exit 1
 
       - name: Run discovery script
         run: |
