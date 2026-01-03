@@ -18,27 +18,30 @@ const isDev = process.env.NODE_ENV !== 'production'
 
 // Build a safe, modern CSP. Dev is looser to preserve HMR and Turbopack UX.
 function buildCsp(): string {
-  const directives: Record<string, string[]> = {
-    'default-src': ["'self'"],
-    'script-src': ["'self'"],
-    'style-src': ["'self'", "'unsafe-inline'"],
-    'img-src': ["'self'", 'data:', 'https:'],
-    'font-src': ["'self'", 'https:', 'data:'],
-    'connect-src': ["'self'", 'https:'],
-    'frame-src': ["'self'"],
-    'base-uri': ["'self'"],
-    'form-action': ["'self'"],
-  }
+  // Canonical CSP for Next.js 14 + Vercel (production-safe)
+  // Allows next/font, Next.js hydration styles, emitted CSS chunks, and Vercel assets.
+  const directives = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: https://vercel.live",
+    "style-src 'self' 'unsafe-inline' blob: data:",
+    "style-src-elem 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob: https:",
+    "font-src 'self' data: https://fonts.gstatic.com",
+    "connect-src 'self' https:",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'self'",
+    "worker-src 'self' blob:",
+    "manifest-src 'self'",
+  ]
 
+  // Loosen a bit in dev for HMR tooling
   if (isDev) {
-    // Allow eval and inline scripts/styles for dev tooling (HMR/Turbopack)
-    directives['script-src'].push("'unsafe-eval'", "'unsafe-inline'")
-    directives['connect-src'].push('ws:', 'wss:')
+    directives.push("connect-src ws: wss:")
   }
 
-  return Object.entries(directives)
-    .map(([k, v]) => `${k} ${v.join(' ')}`)
-    .join('; ')
+  return directives.join('; ')
 }
 
 const securityHeaders = [
