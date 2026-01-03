@@ -1,17 +1,39 @@
 # scripts/run_site_discovery.ps1
 # Run site discovery, create a landing site if none exist, then run publish test
 
+param(
+  [string]$BaseUrl
+)
+
 $ErrorActionPreference = 'Stop'
 
-# Ensure base URL
-$env:NEXT_PUBLIC_BASE_URL = 'http://localhost:3000'
+if (-not $BaseUrl) {
+    Write-Host "❌ BaseUrl not provided. Use -BaseUrl <url> when running the script."
+    exit 1
+}
 
-Write-Output "Using NEXT_PUBLIC_BASE_URL=$env:NEXT_PUBLIC_BASE_URL"
+# Verify required KV environment variables are present in the runtime
+$requiredVars = @(
+  "KV_REST_API_URL",
+  "KV_REST_API_TOKEN"
+)
+
+foreach ($v in $requiredVars) {
+  if (-not (Test-Path ("env:$v"))) {
+    Write-Host "❌ Missing required KV environment variable: $v"
+    Write-Host "   This script must be run in an environment where KV credentials are available."
+    exit 1
+  }
+}
+
+Write-Host "✅ KV environment variables detected."
+
+Write-Output "Using BaseUrl=$BaseUrl"
 
 # 1) List sites
 Write-Output "Fetching /api/sites..."
 try {
-  $resp = Invoke-RestMethod -Uri "$env:NEXT_PUBLIC_BASE_URL/api/sites" -Method GET -ErrorAction Stop
+  $resp = Invoke-RestMethod -Uri "$BaseUrl/api/sites" -Method GET -ErrorAction Stop
 } catch {
   Write-Output "Failed to fetch /api/sites: $_"
   exit 1
@@ -32,7 +54,7 @@ if ($null -eq $resp) {
 
 if ($sites.Count -eq 0) {
   Write-Output "No sites found. Creating new site from template 'landing'..."
-  $out = curl.exe -v "http://localhost:3000/api/templates/create?templateId=landing" 2>&1
+  $out = curl.exe -v "$BaseUrl/api/templates/create?templateId=landing" 2>&1
   Write-Output "Raw curl output:"; $out
   $loc = ($out | Where-Object { $_ -match 'Location:' } | Select-Object -Last 1)
   if ($loc) {

@@ -1,0 +1,30 @@
+name: Site Discovery Validation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-discovery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup PowerShell
+        uses: PowerShell/PowerShell@v2
+
+      - name: Inject Vercel environment variables
+        run: |
+          echo "KV_REST_API_URL=${{ secrets.KV_REST_API_URL }}" >> $GITHUB_ENV
+          echo "KV_REST_API_TOKEN=${{ secrets.KV_REST_API_TOKEN }}" >> $GITHUB_ENV
+          echo "ADMIN_DASHBOARD_TOKEN=${{ secrets.ADMIN_DASHBOARD_TOKEN }}" >> $GITHUB_ENV
+          echo "KV_HEALTH_URL=${{ secrets.KV_HEALTH_URL }}" >> $GITHUB_ENV
+
+      - name: Run discovery script
+        run: |
+          pwsh -NoProfile -File ./scripts/run_site_discovery.ps1 -BaseUrl "https://www.buildwithai.digital"
