@@ -57,6 +57,13 @@ export default function DashboardPage() {
                 </a>
 
                 <a
+                  href={`/site/${site.id}/settings`}
+                  className="underline text-purple-300"
+                >
+                  Settings
+                </a>
+
+                <a
                   href={`/api/publish?siteId=${site.id}`}
                   className="underline text-green-300"
                 >

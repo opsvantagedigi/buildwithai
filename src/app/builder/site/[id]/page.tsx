@@ -6,9 +6,9 @@ import Canvas from "@/components/builder/Canvas";
 import { Sidebar } from "@/components/builder/Sidebar";
 import BlockEditorSidebar from "@/components/builder/BlockEditorSidebar";
 import { loadSiteState } from "@/lib/builder/load";
-import { saveSiteState } from "@/lib/builder/save";
+import { saveSiteState } from "../../../../lib/builder/save";
 import { registerSite, updateSiteTimestamp } from "@/lib/sites/registry";
-import { getSite } from "@/lib/sites/getSite";
+import { getSite } from "../../../../lib/sites/getSite";
 import type { PublishMetadata } from "@/types/publish";
 import type { PublishHistoryEntry, PublishHistory } from "@/types/publish";
 import type { BuilderState } from "@/types/builder";
@@ -429,6 +429,13 @@ export default function BuilderCanvas({ params }: Props) {
           className="text-xs underline text-blue-300"
         >
           View Changelog
+        </a>
+
+        <a
+          href={`/site/${siteId}/settings`}
+          className="text-xs underline text-purple-300"
+        >
+          Settings
         </a>
 
             <button
