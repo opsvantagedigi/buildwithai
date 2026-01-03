@@ -1,0 +1,436 @@
+run-discovery	Set up job	﻿2026-01-03T19:27:59.2076074Z Current runner version: '2.330.0'
+run-discovery	Set up job	2026-01-03T19:27:59.2102130Z ##[group]Runner Image Provisioner
+run-discovery	Set up job	2026-01-03T19:27:59.2102986Z Hosted Compute Agent
+run-discovery	Set up job	2026-01-03T19:27:59.2103707Z Version: 20251211.462
+run-discovery	Set up job	2026-01-03T19:27:59.2104354Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+run-discovery	Set up job	2026-01-03T19:27:59.2105133Z Build Date: 2025-12-11T16:28:49Z
+run-discovery	Set up job	2026-01-03T19:27:59.2105956Z Worker ID: {e9724396-cb82-4acf-a178-f48e343bb120}
+run-discovery	Set up job	2026-01-03T19:27:59.2106831Z ##[endgroup]
+run-discovery	Set up job	2026-01-03T19:27:59.2107449Z ##[group]Operating System
+run-discovery	Set up job	2026-01-03T19:27:59.2108098Z Ubuntu
+run-discovery	Set up job	2026-01-03T19:27:59.2108644Z 24.04.3
+run-discovery	Set up job	2026-01-03T19:27:59.2109272Z LTS
+run-discovery	Set up job	2026-01-03T19:27:59.2109863Z ##[endgroup]
+run-discovery	Set up job	2026-01-03T19:27:59.2110396Z ##[group]Runner Image
+run-discovery	Set up job	2026-01-03T19:27:59.2111023Z Image: ubuntu-24.04
+run-discovery	Set up job	2026-01-03T19:27:59.2111600Z Version: 20251215.174.1
+run-discovery	Set up job	2026-01-03T19:27:59.2112649Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251215.174/images/ubuntu/Ubuntu2404-Readme.md
+run-discovery	Set up job	2026-01-03T19:27:59.2114241Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251215.174
+run-discovery	Set up job	2026-01-03T19:27:59.2115526Z ##[endgroup]
+run-discovery	Set up job	2026-01-03T19:27:59.2116865Z ##[group]GITHUB_TOKEN Permissions
+run-discovery	Set up job	2026-01-03T19:27:59.2119472Z Contents: read
+run-discovery	Set up job	2026-01-03T19:27:59.2120118Z Metadata: read
+run-discovery	Set up job	2026-01-03T19:27:59.2120690Z Packages: read
+run-discovery	Set up job	2026-01-03T19:27:59.2121281Z ##[endgroup]
+run-discovery	Set up job	2026-01-03T19:27:59.2123609Z Secret source: Actions
+run-discovery	Set up job	2026-01-03T19:27:59.2125182Z Prepare workflow directory
+run-discovery	Set up job	2026-01-03T19:27:59.2466782Z Prepare all required actions
+run-discovery	Set up job	2026-01-03T19:27:59.2504188Z Getting action download info
+run-discovery	Set up job	2026-01-03T19:27:59.5571090Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+run-discovery	Set up job	2026-01-03T19:27:59.6442566Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+run-discovery	Set up job	2026-01-03T19:27:59.8292124Z Complete job name: run-discovery
+run-discovery	Checkout repository	﻿2026-01-03T19:27:59.8978900Z ##[group]Run actions/checkout@v4
+run-discovery	Checkout repository	2026-01-03T19:27:59.8979777Z with:
+run-discovery	Checkout repository	2026-01-03T19:27:59.8980254Z   repository: opsvantagedigi/buildwithai
+run-discovery	Checkout repository	2026-01-03T19:27:59.8981009Z   token: ***
+run-discovery	Checkout repository	2026-01-03T19:27:59.8981468Z   ssh-strict: true
+run-discovery	Checkout repository	2026-01-03T19:27:59.8981949Z   ssh-user: git
+run-discovery	Checkout repository	2026-01-03T19:27:59.8982426Z   persist-credentials: true
+run-discovery	Checkout repository	2026-01-03T19:27:59.8982946Z   clean: true
+run-discovery	Checkout repository	2026-01-03T19:27:59.8983387Z   sparse-checkout-cone-mode: true
+run-discovery	Checkout repository	2026-01-03T19:27:59.8983938Z   fetch-depth: 1
+run-discovery	Checkout repository	2026-01-03T19:27:59.8984406Z   fetch-tags: false
+run-discovery	Checkout repository	2026-01-03T19:27:59.8984866Z   show-progress: true
+run-discovery	Checkout repository	2026-01-03T19:27:59.8985301Z   lfs: false
+run-discovery	Checkout repository	2026-01-03T19:27:59.8985700Z   submodules: false
+run-discovery	Checkout repository	2026-01-03T19:27:59.8986141Z   set-safe-directory: true
+run-discovery	Checkout repository	2026-01-03T19:27:59.8987075Z ##[endgroup]
+run-discovery	Checkout repository	2026-01-03T19:28:00.0049874Z Syncing repository: opsvantagedigi/buildwithai
+run-discovery	Checkout repository	2026-01-03T19:28:00.0051819Z ##[group]Getting Git version info
+run-discovery	Checkout repository	2026-01-03T19:28:00.0052598Z Working directory is '/home/runner/work/buildwithai/buildwithai'
+run-discovery	Checkout repository	2026-01-03T19:28:00.0053709Z [command]/usr/bin/git version
+run-discovery	Checkout repository	2026-01-03T19:28:00.0120933Z git version 2.52.0
+run-discovery	Checkout repository	2026-01-03T19:28:00.0148314Z ##[endgroup]
+run-discovery	Checkout repository	2026-01-03T19:28:00.0162918Z Temporarily overriding HOME='/home/runner/work/_temp/036085bf-1c70-4cfc-9449-bcf4809b2cc6' before making global git config changes
+run-discovery	Checkout repository	2026-01-03T19:28:00.0176068Z Adding repository directory to the temporary git global config as a safe directory
+run-discovery	Checkout repository	2026-01-03T19:28:00.0177671Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/buildwithai/buildwithai
+run-discovery	Checkout repository	2026-01-03T19:28:00.0223033Z Deleting the contents of '/home/runner/work/buildwithai/buildwithai'
+run-discovery	Checkout repository	2026-01-03T19:28:00.0226734Z ##[group]Initializing the repository
+run-discovery	Checkout repository	2026-01-03T19:28:00.0230763Z [command]/usr/bin/git init /home/runner/work/buildwithai/buildwithai
+run-discovery	Checkout repository	2026-01-03T19:28:00.0322649Z hint: Using 'master' as the name for the initial branch. This default branch name
+run-discovery	Checkout repository	2026-01-03T19:28:00.0324571Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+run-discovery	Checkout repository	2026-01-03T19:28:00.0326575Z hint: to use in all of your new repositories, which will suppress this warning,
+run-discovery	Checkout repository	2026-01-03T19:28:00.0328190Z hint: call:
+run-discovery	Checkout repository	2026-01-03T19:28:00.0328720Z hint:
+run-discovery	Checkout repository	2026-01-03T19:28:00.0329331Z hint: 	git config --global init.defaultBranch <name>
+run-discovery	Checkout repository	2026-01-03T19:28:00.0330003Z hint:
+run-discovery	Checkout repository	2026-01-03T19:28:00.0330660Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+run-discovery	Checkout repository	2026-01-03T19:28:00.0331705Z hint: 'development'. The just-created branch can be renamed via this command:
+run-discovery	Checkout repository	2026-01-03T19:28:00.0332436Z hint:
+run-discovery	Checkout repository	2026-01-03T19:28:00.0332931Z hint: 	git branch -m <name>
+run-discovery	Checkout repository	2026-01-03T19:28:00.0333657Z hint:
+run-discovery	Checkout repository	2026-01-03T19:28:00.0334381Z hint: Disable this message with "git config set advice.defaultBranchName false"
+run-discovery	Checkout repository	2026-01-03T19:28:00.0335479Z Initialized empty Git repository in /home/runner/work/buildwithai/buildwithai/.git/
+run-discovery	Checkout repository	2026-01-03T19:28:00.0339796Z [command]/usr/bin/git remote add origin https://github.com/opsvantagedigi/buildwithai
+run-discovery	Checkout repository	2026-01-03T19:28:00.0376338Z ##[endgroup]
+run-discovery	Checkout repository	2026-01-03T19:28:00.0377370Z ##[group]Disabling automatic garbage collection
+run-discovery	Checkout repository	2026-01-03T19:28:00.0380241Z [command]/usr/bin/git config --local gc.auto 0
+run-discovery	Checkout repository	2026-01-03T19:28:00.0409906Z ##[endgroup]
+run-discovery	Checkout repository	2026-01-03T19:28:00.0410641Z ##[group]Setting up auth
+run-discovery	Checkout repository	2026-01-03T19:28:00.0416618Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+run-discovery	Checkout repository	2026-01-03T19:28:00.0447428Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+run-discovery	Checkout repository	2026-01-03T19:28:00.0819258Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+run-discovery	Checkout repository	2026-01-03T19:28:00.0851120Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+run-discovery	Checkout repository	2026-01-03T19:28:00.1072971Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+run-discovery	Checkout repository	2026-01-03T19:28:00.1103276Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+run-discovery	Checkout repository	2026-01-03T19:28:00.1334368Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+run-discovery	Checkout repository	2026-01-03T19:28:00.1368256Z ##[endgroup]
+run-discovery	Checkout repository	2026-01-03T19:28:00.1369064Z ##[group]Fetching the repository
+run-discovery	Checkout repository	2026-01-03T19:28:00.1376701Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bbaa33badae9e594e56c3fff468935fa79c20b7d:refs/remotes/origin/main
+run-discovery	Checkout repository	2026-01-03T19:28:00.3077807Z From https://github.com/opsvantagedigi/buildwithai
+run-discovery	Checkout repository	2026-01-03T19:28:00.3079279Z  * [new ref]         bbaa33badae9e594e56c3fff468935fa79c20b7d -> origin/main
+run-discovery	Checkout repository	2026-01-03T19:28:00.3111487Z ##[endgroup]
+run-discovery	Checkout repository	2026-01-03T19:28:00.3112306Z ##[group]Determining the checkout info
+run-discovery	Checkout repository	2026-01-03T19:28:00.3113777Z ##[endgroup]
+run-discovery	Checkout repository	2026-01-03T19:28:00.3118948Z [command]/usr/bin/git sparse-checkout disable
+run-discovery	Checkout repository	2026-01-03T19:28:00.3158496Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+run-discovery	Checkout repository	2026-01-03T19:28:00.3182882Z ##[group]Checking out the ref
+run-discovery	Checkout repository	2026-01-03T19:28:00.3186292Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+run-discovery	Checkout repository	2026-01-03T19:28:00.3511981Z Switched to a new branch 'main'
+run-discovery	Checkout repository	2026-01-03T19:28:00.3514839Z branch 'main' set up to track 'origin/main'.
+run-discovery	Checkout repository	2026-01-03T19:28:00.3522013Z ##[endgroup]
+run-discovery	Checkout repository	2026-01-03T19:28:00.3554110Z [command]/usr/bin/git log -1 --format=%H
+run-discovery	Checkout repository	2026-01-03T19:28:00.3575021Z bbaa33badae9e594e56c3fff468935fa79c20b7d
+run-discovery	Setup Node	﻿2026-01-03T19:28:00.3814619Z ##[group]Run actions/setup-node@v4
+run-discovery	Setup Node	2026-01-03T19:28:00.3815201Z with:
+run-discovery	Setup Node	2026-01-03T19:28:00.3815605Z   node-version: 20
+run-discovery	Setup Node	2026-01-03T19:28:00.3816048Z   always-auth: false
+run-discovery	Setup Node	2026-01-03T19:28:00.3816648Z   check-latest: false
+run-discovery	Setup Node	2026-01-03T19:28:00.3817235Z   token: ***
+run-discovery	Setup Node	2026-01-03T19:28:00.3817638Z ##[endgroup]
+run-discovery	Setup Node	2026-01-03T19:28:00.5556611Z Found in cache @ /opt/hostedtoolcache/node/20.19.6/x64
+run-discovery	Setup Node	2026-01-03T19:28:00.5563932Z ##[group]Environment details
+run-discovery	Setup Node	2026-01-03T19:28:00.8862412Z node: v20.19.6
+run-discovery	Setup Node	2026-01-03T19:28:00.8864175Z npm: 10.8.2
+run-discovery	Setup Node	2026-01-03T19:28:00.8865103Z yarn: 1.22.22
+run-discovery	Setup Node	2026-01-03T19:28:00.8867403Z ##[endgroup]
+run-discovery	Install dependencies	﻿2026-01-03T19:28:00.9001341Z ##[group]Run npm ci
+run-discovery	Install dependencies	2026-01-03T19:28:00.9002511Z [36;1mnpm ci[0m
+run-discovery	Install dependencies	2026-01-03T19:28:00.9047281Z shell: /usr/bin/bash -e {0}
+run-discovery	Install dependencies	2026-01-03T19:28:00.9048491Z ##[endgroup]
+run-discovery	Install dependencies	2026-01-03T19:28:02.0680452Z npm warn ERESOLVE overriding peer dependency
+run-discovery	Install dependencies	2026-01-03T19:28:02.0682244Z npm warn While resolving: react-remove-scroll@2.5.5
+run-discovery	Install dependencies	2026-01-03T19:28:02.0682707Z npm warn Found: @types/react@19.2.7
+run-discovery	Install dependencies	2026-01-03T19:28:02.0683103Z npm warn node_modules/@types/react
+run-discovery	Install dependencies	2026-01-03T19:28:02.0683556Z npm warn   dev @types/react@"^19" from the root project
+run-discovery	Install dependencies	2026-01-03T19:28:02.0684144Z npm warn   65 more (@mdx-js/react, @radix-ui/react-arrow, ...)
+run-discovery	Install dependencies	2026-01-03T19:28:02.0684536Z npm warn
+run-discovery	Install dependencies	2026-01-03T19:28:02.0684896Z npm warn Could not resolve dependency:
+run-discovery	Install dependencies	2026-01-03T19:28:02.0685541Z npm warn peerOptional @types/react@"^16.8.0 || ^17.0.0 || ^18.0.0" from react-remove-scroll@2.5.5
+run-discovery	Install dependencies	2026-01-03T19:28:02.0686242Z npm warn node_modules/@radix-ui/react-select/node_modules/react-remove-scroll
+run-discovery	Install dependencies	2026-01-03T19:28:02.0687164Z npm warn   react-remove-scroll@"2.5.5" from @radix-ui/react-select@1.2.2
+run-discovery	Install dependencies	2026-01-03T19:28:02.0687735Z npm warn   node_modules/@radix-ui/react-select
+run-discovery	Install dependencies	2026-01-03T19:28:02.0688073Z npm warn
+run-discovery	Install dependencies	2026-01-03T19:28:02.0688471Z npm warn Conflicting peer dependency: @types/react@18.3.27
+run-discovery	Install dependencies	2026-01-03T19:28:02.0688905Z npm warn node_modules/@types/react
+run-discovery	Install dependencies	2026-01-03T19:28:02.0689562Z npm warn   peerOptional @types/react@"^16.8.0 || ^17.0.0 || ^18.0.0" from react-remove-scroll@2.5.5
+run-discovery	Install dependencies	2026-01-03T19:28:02.0690268Z npm warn   node_modules/@radix-ui/react-select/node_modules/react-remove-scroll
+run-discovery	Install dependencies	2026-01-03T19:28:02.0690911Z npm warn     react-remove-scroll@"2.5.5" from @radix-ui/react-select@1.2.2
+run-discovery	Install dependencies	2026-01-03T19:28:02.0691424Z npm warn     node_modules/@radix-ui/react-select
+run-discovery	Install dependencies	2026-01-03T19:28:03.7953552Z npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+run-discovery	Install dependencies	2026-01-03T19:28:05.4140667Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+run-discovery	Install dependencies	2026-01-03T19:28:05.9684042Z npm warn deprecated domexception@4.0.0: Use your platform's native DOMException instead
+run-discovery	Install dependencies	2026-01-03T19:28:06.2635452Z npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+run-discovery	Install dependencies	2026-01-03T19:28:07.8564781Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+run-discovery	Install dependencies	2026-01-03T19:28:24.6481510Z 
+run-discovery	Install dependencies	2026-01-03T19:28:24.6482333Z added 928 packages, and audited 929 packages in 24s
+run-discovery	Install dependencies	2026-01-03T19:28:24.6483098Z 
+run-discovery	Install dependencies	2026-01-03T19:28:24.6483751Z 333 packages are looking for funding
+run-discovery	Install dependencies	2026-01-03T19:28:24.6484900Z   run `npm fund` for details
+run-discovery	Install dependencies	2026-01-03T19:28:24.7888897Z 
+run-discovery	Install dependencies	2026-01-03T19:28:24.7889690Z 11 moderate severity vulnerabilities
+run-discovery	Install dependencies	2026-01-03T19:28:24.7890208Z 
+run-discovery	Install dependencies	2026-01-03T19:28:24.7890755Z To address issues that do not require attention, run:
+run-discovery	Install dependencies	2026-01-03T19:28:24.7891400Z   npm audit fix
+run-discovery	Install dependencies	2026-01-03T19:28:24.7891701Z 
+run-discovery	Install dependencies	2026-01-03T19:28:24.7892180Z To address all issues (including breaking changes), run:
+run-discovery	Install dependencies	2026-01-03T19:28:24.7892787Z   npm audit fix --force
+run-discovery	Install dependencies	2026-01-03T19:28:24.7967925Z 
+run-discovery	Install dependencies	2026-01-03T19:28:24.7968196Z Run `npm audit` for details.
+run-discovery	Install PowerShell on runner	﻿2026-01-03T19:28:24.8298492Z ##[group]Run sudo apt-get update -y
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.8298877Z [36;1msudo apt-get update -y[0m
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.8299289Z [36;1msudo apt-get install -y wget apt-transport-https software-properties-common[0m
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.8299915Z [36;1mwget -q "https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb"[0m
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.8300403Z [36;1msudo dpkg -i packages-microsoft-prod.deb[0m
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.8300696Z [36;1msudo apt-get update -y[0m
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.8300960Z [36;1msudo apt-get install -y powershell[0m
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.8335757Z shell: /usr/bin/bash -e {0}
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.8336241Z ##[endgroup]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.9058716Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.9434857Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.9436752Z Hit:6 https://packages.microsoft.com/repos/azure-cli noble InRelease
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.9450335Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.9456569Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.9490120Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:24.9524294Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1065375Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [77.5 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1225711Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [59.1 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1260340Z Get:10 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [11.4 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1588040Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1684 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1718586Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [311 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1727784Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1754231Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [15.8 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1779874Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1506 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1867043Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [306 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1902541Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [378 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1939095Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [31.4 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.1953239Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2413 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2098348Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [550 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2630667Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2642614Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 c-n-f Metadata [516 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2657107Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [30.3 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2698678Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [6048 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2701892Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2703415Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 c-n-f Metadata [488 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2704992Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [40.4 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2708560Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7340 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2716918Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 c-n-f Metadata [368 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2728410Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [29.5 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2745448Z Get:31 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [17.9 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2756080Z Get:32 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [10.5 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2765282Z Get:33 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 c-n-f Metadata [1444 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.2774088Z Get:34 http://azure.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.3225712Z Get:35 http://azure.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.3236053Z Get:36 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [225 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.3261642Z Get:37 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [21.5 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.3271854Z Get:38 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [9504 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.3282628Z Get:39 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [71.4 kB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.3301002Z Get:40 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:25.3308737Z Get:41 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [212 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:33.5226356Z Fetched 8375 kB in 1s (7424 kB/s)
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:34.2674970Z Reading package lists...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:34.3000410Z Reading package lists...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:34.4665446Z Building dependency tree...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:34.4673985Z Reading state information...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:34.6469679Z wget is already the newest version (1.21.4-1ubuntu4.1).
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:34.6470863Z apt-transport-https is already the newest version (2.8.3).
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:34.6471761Z software-properties-common is already the newest version (0.99.49.3).
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:34.6472564Z 0 upgraded, 0 newly installed, 0 to remove and 69 not upgraded.
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.4773344Z (Reading database ... 217374 files and directories currently installed.)
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.4814441Z Preparing to unpack packages-microsoft-prod.deb ...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.4916190Z Unpacking packages-microsoft-prod (1.2-ubuntu24.04) over (1.2-ubuntu24.04) ...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.5183392Z Setting up packages-microsoft-prod (1.2-ubuntu24.04) ...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.5245262Z File /usr/share/keyrings/microsoft-prod.gpg is missing. Installing...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.6049374Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.6411609Z Hit:6 https://packages.microsoft.com/repos/azure-cli noble InRelease
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.6413091Z Hit:7 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.6443647Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.6460705Z Hit:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.6469385Z Hit:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:35.6501751Z Hit:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:37.7960660Z Reading package lists...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:37.8276814Z Reading package lists...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:38.0002033Z Building dependency tree...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:38.0009316Z Reading state information...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:38.1694937Z The following packages will be upgraded:
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:38.2399993Z   powershell
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:38.2400556Z 1 upgraded, 0 newly installed, 0 to remove and 68 not upgraded.
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:38.2401076Z Need to get 75.5 MB of archives.
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:38.2401798Z After this operation, 7552 kB of additional disk space will be used.
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:38.2402605Z Get:1 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 powershell amd64 7.5.4-1.deb [75.5 MB]
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5559755Z Fetched 75.5 MB in 1s (67.1 MB/s)
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5800663Z (Reading database ... 
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5801225Z (Reading database ... 5%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5801760Z (Reading database ... 10%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5802187Z (Reading database ... 15%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5802598Z (Reading database ... 20%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5802994Z (Reading database ... 25%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5803380Z (Reading database ... 30%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5803778Z (Reading database ... 35%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5804174Z (Reading database ... 40%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5804566Z (Reading database ... 45%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5804960Z (Reading database ... 50%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5819015Z (Reading database ... 55%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5919282Z (Reading database ... 60%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5941823Z (Reading database ... 65%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5957575Z (Reading database ... 70%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.5980955Z (Reading database ... 75%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.6012186Z (Reading database ... 80%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.6143032Z (Reading database ... 85%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.6401683Z (Reading database ... 90%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.6464399Z (Reading database ... 95%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.6464950Z (Reading database ... 100%
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.6465623Z (Reading database ... 217374 files and directories currently installed.)
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.6504136Z Preparing to unpack .../powershell_7.5.4-1.deb_amd64.deb ...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:39.6528179Z Unpacking powershell (7.5.4-1.deb) over (7.4.13-1.deb) ...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:40.6196620Z Setting up powershell (7.5.4-1.deb) ...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:40.6466259Z Processing triggers for man-db (2.12.0-4build2) ...
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:40.6493542Z Not building database; man-db/auto-update is not 'true'.
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3140536Z 
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3141189Z Running kernel seems to be up-to-date.
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3141580Z 
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3141849Z No services need to be restarted.
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3142128Z 
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3142312Z No containers need to be restarted.
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3142521Z 
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3142730Z No user sessions are running outdated binaries.
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3143002Z 
+run-discovery	Install PowerShell on runner	2026-01-03T19:28:41.3143343Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+run-discovery	Inject Vercel environment variables	﻿2026-01-03T19:28:42.1791943Z ##[group]Run echo "KV_REST_API_URL=***" >> $GITHUB_ENV
+run-discovery	Inject Vercel environment variables	2026-01-03T19:28:42.1792520Z [36;1mecho "KV_REST_API_URL=***" >> $GITHUB_ENV[0m
+run-discovery	Inject Vercel environment variables	2026-01-03T19:28:42.1793083Z [36;1mecho "KV_REST_API_TOKEN=***" >> $GITHUB_ENV[0m
+run-discovery	Inject Vercel environment variables	2026-01-03T19:28:42.1793640Z [36;1mecho "ADMIN_DASHBOARD_TOKEN=***" >> $GITHUB_ENV[0m
+run-discovery	Inject Vercel environment variables	2026-01-03T19:28:42.1794091Z [36;1mecho "KV_HEALTH_URL=***" >> $GITHUB_ENV[0m
+run-discovery	Inject Vercel environment variables	2026-01-03T19:28:42.1794457Z [36;1mecho "TEST_BASE_URL=https://www.buildwithai.digital" >> $GITHUB_ENV[0m
+run-discovery	Inject Vercel environment variables	2026-01-03T19:28:42.1827276Z shell: /usr/bin/bash -e {0}
+run-discovery	Inject Vercel environment variables	2026-01-03T19:28:42.1827522Z ##[endgroup]
+run-discovery	Install jq	﻿2026-01-03T19:28:42.1907960Z ##[group]Run sudo apt-get update -y
+run-discovery	Install jq	2026-01-03T19:28:42.1908264Z [36;1msudo apt-get update -y[0m
+run-discovery	Install jq	2026-01-03T19:28:42.1908517Z [36;1msudo apt-get install -y jq[0m
+run-discovery	Install jq	2026-01-03T19:28:42.1937433Z shell: /usr/bin/bash -e {0}
+run-discovery	Install jq	2026-01-03T19:28:42.1937667Z env:
+run-discovery	Install jq	2026-01-03T19:28:42.1937968Z   KV_REST_API_URL: ***
+run-discovery	Install jq	2026-01-03T19:28:42.1938345Z   KV_REST_API_TOKEN: ***
+run-discovery	Install jq	2026-01-03T19:28:42.1938725Z   ADMIN_DASHBOARD_TOKEN: ***
+run-discovery	Install jq	2026-01-03T19:28:42.1939029Z   KV_HEALTH_URL: ***
+run-discovery	Install jq	2026-01-03T19:28:42.1939255Z   TEST_BASE_URL: https://www.buildwithai.digital
+run-discovery	Install jq	2026-01-03T19:28:42.1939526Z ##[endgroup]
+run-discovery	Install jq	2026-01-03T19:28:42.2590508Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+run-discovery	Install jq	2026-01-03T19:28:42.2929313Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+run-discovery	Install jq	2026-01-03T19:28:42.2930410Z Hit:6 https://packages.microsoft.com/repos/azure-cli noble InRelease
+run-discovery	Install jq	2026-01-03T19:28:42.2949598Z Hit:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease
+run-discovery	Install jq	2026-01-03T19:28:42.2962857Z Hit:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease
+run-discovery	Install jq	2026-01-03T19:28:42.2966931Z Hit:7 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease
+run-discovery	Install jq	2026-01-03T19:28:42.2971375Z Hit:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease
+run-discovery	Install jq	2026-01-03T19:28:43.5098469Z Reading package lists...
+run-discovery	Install jq	2026-01-03T19:28:43.5420888Z Reading package lists...
+run-discovery	Install jq	2026-01-03T19:28:43.7377504Z Building dependency tree...
+run-discovery	Install jq	2026-01-03T19:28:43.7385331Z Reading state information...
+run-discovery	Install jq	2026-01-03T19:28:43.9163313Z jq is already the newest version (1.7.1-3ubuntu0.24.04.1).
+run-discovery	Install jq	2026-01-03T19:28:43.9164228Z 0 upgraded, 0 newly installed, 0 to remove and 68 not upgraded.
+run-discovery	Health check — KV endpoint	﻿2026-01-03T19:28:43.9209189Z ##[group]Run echo "Checking KV health at: $TEST_BASE_URL/api/kv/health"
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9209697Z [36;1mecho "Checking KV health at: $TEST_BASE_URL/api/kv/health"[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9210007Z [36;1m[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9210341Z [36;1mattempts=3[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9210534Z [36;1mdelay=2[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9210711Z [36;1m[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9210895Z [36;1mfor i in $(seq 1 $attempts); do[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9211179Z [36;1m  echo "Attempt $i of $attempts..."[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9211577Z [36;1m  response=$(curl -s -w " HTTP_STATUS:%{http_code}" "$TEST_BASE_URL/api/kv/health")[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9212027Z [36;1m  body=$(echo "$response" | sed -e 's/ HTTP_STATUS:.*//g')[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9212456Z [36;1m  status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTP_STATUS://')[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9212798Z [36;1m[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9212975Z [36;1m  echo "Status: $status"[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9213202Z [36;1m  echo "Body:"[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9213437Z [36;1m  echo "$body"[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9213621Z [36;1m[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9213798Z [36;1m  if [ "$status" -eq 200 ]; then[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9214085Z [36;1m    ok=$(echo "$body" | jq -r '.success // empty')[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9214354Z [36;1m[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9214528Z [36;1m    if [ "$ok" = "true" ]; then[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9214843Z [36;1m      echo "✅ KV health check passed (status: $status, ok=$ok)"[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9215149Z [36;1m      exit 0[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9215339Z [36;1m    else[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9215588Z [36;1m      echo "⚠️ KV health returned 200 but ok!=true (ok=$ok)."[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9215928Z [36;1m      echo "Full response body logged above."[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9216197Z [36;1m    fi[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9216598Z [36;1m  else[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9216964Z [36;1m    echo "⚠️ KV health returned non-200 status: $status"[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9217330Z [36;1m    echo "Full response body logged above."[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9217606Z [36;1m  fi[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9217786Z [36;1m[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9217978Z [36;1m  echo "Retrying in ${delay}s..."[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9218237Z [36;1m  sleep $delay[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9218449Z [36;1mdone[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9218610Z [36;1m[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9218852Z [36;1mecho "❌ KV health check FAILED after $attempts attempts."[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9219155Z [36;1mexit 1[0m
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9251247Z shell: /usr/bin/bash -e {0}
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9251480Z env:
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9251815Z   KV_REST_API_URL: ***
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9252194Z   KV_REST_API_TOKEN: ***
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9252567Z   ADMIN_DASHBOARD_TOKEN: ***
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9252865Z   KV_HEALTH_URL: ***
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9253107Z   TEST_BASE_URL: https://www.buildwithai.digital
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9253394Z ##[endgroup]
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9303149Z Checking KV health at: ***
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:43.9322090Z Attempt 1 of 3...
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:45.0878922Z Status: 200
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:45.0879319Z Body:
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:45.0879666Z {"success":true,"kv":"connected"}
+run-discovery	Health check — KV endpoint	2026-01-03T19:28:45.0910836Z ✅ KV health check passed (status: 200, ok=true)
+run-discovery	Run discovery script	﻿2026-01-03T19:28:45.0938892Z ##[group]Run pwsh -NoProfile -File ./scripts/run_site_discovery.ps1 -BaseUrl "https://www.buildwithai.digital"
+run-discovery	Run discovery script	2026-01-03T19:28:45.0939670Z [36;1mpwsh -NoProfile -File ./scripts/run_site_discovery.ps1 -BaseUrl "https://www.buildwithai.digital"[0m
+run-discovery	Run discovery script	2026-01-03T19:28:45.0971769Z shell: /usr/bin/bash -e {0}
+run-discovery	Run discovery script	2026-01-03T19:28:45.0972000Z env:
+run-discovery	Run discovery script	2026-01-03T19:28:45.0972353Z   KV_REST_API_URL: ***
+run-discovery	Run discovery script	2026-01-03T19:28:45.0972728Z   KV_REST_API_TOKEN: ***
+run-discovery	Run discovery script	2026-01-03T19:28:45.0973158Z   ADMIN_DASHBOARD_TOKEN: ***
+run-discovery	Run discovery script	2026-01-03T19:28:45.0973462Z   KV_HEALTH_URL: ***
+run-discovery	Run discovery script	2026-01-03T19:28:45.0973712Z   TEST_BASE_URL: https://www.buildwithai.digital
+run-discovery	Run discovery script	2026-01-03T19:28:45.0973999Z ##[endgroup]
+run-discovery	Run discovery script	2026-01-03T19:28:45.9473226Z ✅ KV environment variables detected.
+run-discovery	Run discovery script	2026-01-03T19:28:45.9517404Z Using BaseUrl=https://www.buildwithai.digital
+run-discovery	Run discovery script	2026-01-03T19:28:45.9520501Z Fetching /api/sites...
+run-discovery	Run discovery script	2026-01-03T19:28:46.6879632Z Existing sites:
+run-discovery	Run discovery script	2026-01-03T19:28:46.6892212Z cd272ff3-9fce-4985-b2a1-f02f7961ca17 New landing site
+run-discovery	Run discovery script	2026-01-03T19:28:46.6904574Z Using siteId: cd272ff3-9fce-4985-b2a1-f02f7961ca17
+run-discovery	Run discovery script	2026-01-03T19:28:46.6906881Z Running publish test for siteId: cd272ff3-9fce-4985-b2a1-f02f7961ca17
+run-discovery	Run discovery script	2026-01-03T19:28:47.4713135Z npm warn exec The following package was not found and will be installed: tsx@4.21.0
+run-discovery	Run discovery script	2026-01-03T19:28:48.8383043Z 
+run-discovery	Run discovery script	2026-01-03T19:28:48.8384315Z 🔍 Testing publish pipeline for site: cd272ff3-9fce-4985-b2a1-f02f7961ca17
+run-discovery	Run discovery script	2026-01-03T19:28:48.8384870Z 
+run-discovery	Run discovery script	2026-01-03T19:28:48.8385386Z 🔗 Using TEST_BASE_URL: https://www.buildwithai.digital
+run-discovery	Run discovery script	2026-01-03T19:28:48.8386073Z 📡 Calling /api/publish ...
+run-discovery	Run discovery script	2026-01-03T19:28:52.9046834Z ✅ Publish API responded: {
+run-discovery	Run discovery script	2026-01-03T19:28:52.9047392Z   ok: true,
+run-discovery	Run discovery script	2026-01-03T19:28:52.9047735Z   publish: {
+run-discovery	Run discovery script	2026-01-03T19:28:52.9048221Z     siteId: 'cd272ff3-9fce-4985-b2a1-f02f7961ca17',
+run-discovery	Run discovery script	2026-01-03T19:28:52.9048834Z     lastPublishedAt: 1767468531047,
+run-discovery	Run discovery script	2026-01-03T19:28:52.9049326Z     lastPublishedVersion: 2,
+run-discovery	Run discovery script	2026-01-03T19:28:52.9049789Z     lastPublishedUrl: null
+run-discovery	Run discovery script	2026-01-03T19:28:52.9050182Z   },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9050523Z   history: [
+run-discovery	Run discovery script	2026-01-03T19:28:52.9051019Z     { version: 2, timestamp: 1767448139493, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9051657Z     { version: 2, timestamp: 1767448184442, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9052294Z     { version: 2, timestamp: 1767448423717, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9052914Z     { version: 2, timestamp: 1767448465492, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9053533Z     { version: 2, timestamp: 1767448519028, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9054142Z     { version: 2, timestamp: 1767448557223, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9054766Z     { version: 2, timestamp: 1767448599269, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9055389Z     { version: 2, timestamp: 1767448656797, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9055957Z     { version: 2, timestamp: 1767457477700, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9056745Z     { version: 2, timestamp: 1767460489094, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9057359Z     { version: 2, timestamp: 1767460626386, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9057979Z     { version: 2, timestamp: 1767461011790, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9058634Z     { version: 2, timestamp: 1767463591927, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9059266Z     { version: 2, timestamp: 1767468523171, url: null },
+run-discovery	Run discovery script	2026-01-03T19:28:52.9059886Z     { version: 2, timestamp: 1767468531664, url: null }
+run-discovery	Run discovery script	2026-01-03T19:28:52.9060378Z   ]
+run-discovery	Run discovery script	2026-01-03T19:28:52.9060683Z }
+run-discovery	Run discovery script	2026-01-03T19:28:52.9060853Z 
+run-discovery	Run discovery script	2026-01-03T19:28:52.9061826Z 📦 Fetching snapshot from KV: buildwithai:site:html_snapshot:cd272ff3-9fce-4985-b2a1-f02f7961ca17:2
+run-discovery	Run discovery script	2026-01-03T19:28:53.3898801Z ✅ Snapshot retrieved.
+run-discovery	Run discovery script	2026-01-03T19:28:53.3899169Z 
+run-discovery	Run discovery script	2026-01-03T19:28:53.3899559Z 🔎 Validating tracking injection...
+run-discovery	Run discovery script	2026-01-03T19:28:53.3900192Z 🎉 SUCCESS — Tracking injection is present and valid.
+run-discovery	Run discovery script	2026-01-03T19:28:53.3900559Z 
+run-discovery	Run discovery script	2026-01-03T19:28:53.3900956Z ✨ Full publish pipeline validated successfully.
+run-discovery	Run discovery script	2026-01-03T19:28:53.3901299Z 
+run-discovery	Run discovery script	2026-01-03T19:28:53.4190553Z Publish test exited with code: 0
+run-discovery	Post Setup Node	﻿2026-01-03T19:28:53.4735551Z Post job cleanup.
+run-discovery	Post Checkout repository	﻿2026-01-03T19:28:53.6726016Z Post job cleanup.
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.7666284Z [command]/usr/bin/git version
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.7703025Z git version 2.52.0
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.7745251Z Temporarily overriding HOME='/home/runner/work/_temp/9745c1b3-6a1b-4baa-ba21-c43e7526c0f3' before making global git config changes
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.7746173Z Adding repository directory to the temporary git global config as a safe directory
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.7750809Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/buildwithai/buildwithai
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.7835046Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.7870981Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.8325380Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.8349554Z http.https://github.com/.extraheader
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.8362410Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.8394670Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.8621060Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+run-discovery	Post Checkout repository	2026-01-03T19:28:53.8652832Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+run-discovery	Complete job	﻿2026-01-03T19:28:53.9007028Z Cleaning up orphan processes
