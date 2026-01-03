@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { exportSiteToStatic } from "@/lib/export/site";
 import { triggerVercelStagingDeploy } from "@/lib/publish/staging";
 import { kv } from "@/lib/kv";
+import { updateSiteTimestamp } from "@/lib/sites/registry";
 
 const STAGING_METADATA_PREFIX = "buildwithai:site:staging:";
 
@@ -31,6 +32,8 @@ export async function POST(req: Request) {
     };
 
     await kv.set(metadataKey, metadata);
+
+    await updateSiteTimestamp(siteId);
 
     return NextResponse.json({
       ok: staging.ok,

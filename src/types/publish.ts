@@ -26,5 +26,6 @@ export type VersionSnapshot = {
   timestamp: number;
   state: any; // stored as raw JSON; validated on load
   changelog?: string | null;
+  releaseNotes?: string | null;
 };
 

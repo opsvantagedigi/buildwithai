@@ -7,6 +7,8 @@ import { Sidebar } from "@/components/builder/Sidebar";
 import BlockEditorSidebar from "@/components/builder/BlockEditorSidebar";
 import { loadSiteState } from "@/lib/builder/load";
 import { saveSiteState } from "@/lib/builder/save";
+import { registerSite, updateSiteTimestamp } from "@/lib/sites/registry";
+import { getSite } from "@/lib/sites/getSite";
 import type { PublishMetadata } from "@/types/publish";
 import type { PublishHistoryEntry, PublishHistory } from "@/types/publish";
 import type { BuilderState } from "@/types/builder";
@@ -33,12 +35,15 @@ export default function BuilderCanvas({ params }: Props) {
   const [isStaging, setIsStaging] = useState(false);
   const [stagingUrl, setStagingUrl] = useState<string | null>(null);
   const [stagingError, setStagingError] = useState<string | null>(null);
+  const [site, setSite] = useState<{ id: string; name: string; createdAt: number; updatedAt: number } | null>(null);
   const [expandedChangelogVersion, setExpandedChangelogVersion] = useState<
     number | null
   >(null);
   const [changelogContent, setChangelogContent] = useState<
     Record<number, string | null>
   >({});
+  const [expandedReleaseNotesVersion, setExpandedReleaseNotesVersion] = useState<number | null>(null);
+  const [releaseNotesContent, setReleaseNotesContent] = useState<Record<number, string | null>>({});
 
   useEffect(() => {
     async function init() {
@@ -76,6 +81,20 @@ export default function BuilderCanvas({ params }: Props) {
     }
 
     init();
+  }, [siteId]);
+
+  useEffect(() => {
+    async function load() {
+      const data = await getSite(siteId);
+      setSite(data);
+
+      // Auto-register site in dashboard registry
+      if (data?.name) {
+        await registerSite(siteId, data.name);
+        await updateSiteTimestamp(siteId);
+      }
+    }
+    load();
   }, [siteId]);
 
   // AUTOSAVE (debounced)
@@ -240,6 +259,28 @@ export default function BuilderCanvas({ params }: Props) {
     setChangelogContent((prev) => ({
       ...prev,
       [version]: data?.changelog ?? null,
+    }));
+  }
+
+  async function loadReleaseNotes(version: number) {
+    if (releaseNotesContent[version] !== undefined) return;
+
+    const res = await fetch(
+      `/api/publish/release-notes?siteId=${siteId}&version=${version}`
+    );
+
+    if (!res.ok) {
+      setReleaseNotesContent((prev) => ({
+        ...prev,
+        [version]: null,
+      }));
+      return;
+    }
+
+    const data = await res.json();
+    setReleaseNotesContent((prev) => ({
+      ...prev,
+      [version]: data?.releaseNotes ?? null,
     }));
   }
 
@@ -436,13 +477,10 @@ export default function BuilderCanvas({ params }: Props) {
             <h2 className="text-sm font-semibold mb-2">Publish History</h2>
             <ul className="space-y-2 text-xs">
               {publishHistory.map((entry, i) => (
-                <li
-                  key={i}
-                  className="border-b border-slate-800 pb-1"
-                >
+                <li key={i} className="border-b border-slate-800 pb-1">
                   <div className="flex items-center justify-between">
                     <span>
-                      Version {entry.version} —{" "}
+                      Version {entry.version} — {" "}
                       {new Date(entry.timestamp).toLocaleString()}
                       {entry.rollback ? " (rollback)" : ""}
                     </span>
@@ -475,14 +513,29 @@ export default function BuilderCanvas({ params }: Props) {
                               ? null
                               : entry.version;
                           setExpandedChangelogVersion(next);
-                          if (next !== null) {
-                            loadChangelog(next);
-                          }
+                          if (next !== null) loadChangelog(next);
                         }}
                       >
                         {expandedChangelogVersion === entry.version
                           ? "Hide changelog"
                           : "View changelog"}
+                      </button>
+
+                      <button
+                        type="button"
+                        className="text-slate-400 text-[10px] underline"
+                        onClick={() => {
+                          const next =
+                            expandedReleaseNotesVersion === entry.version
+                              ? null
+                              : entry.version;
+                          setExpandedReleaseNotesVersion(next);
+                          if (next !== null) loadReleaseNotes(next);
+                        }}
+                      >
+                        {expandedReleaseNotesVersion === entry.version
+                          ? "Hide release notes"
+                          : "View release notes"}
                       </button>
                     </div>
                   </div>
@@ -490,17 +543,24 @@ export default function BuilderCanvas({ params }: Props) {
                   {expandedChangelogVersion === entry.version && (
                     <div className="mt-1 text-[11px] text-slate-300 whitespace-pre-line">
                       {changelogContent[entry.version] === undefined && (
-                        <span className="text-slate-500">
-                          Loading changelog…
-                        </span>
+                        <span className="text-slate-500">Loading changelog…</span>
                       )}
                       {changelogContent[entry.version] === null && (
-                        <span className="text-slate-500">
-                          No changelog available for this version.
-                        </span>
+                        <span className="text-slate-500">No changelog available for this version.</span>
                       )}
-                      {changelogContent[entry.version] &&
-                        changelogContent[entry.version]}
+                      {changelogContent[entry.version] && changelogContent[entry.version]}
+                    </div>
+                  )}
+
+                  {expandedReleaseNotesVersion === entry.version && (
+                    <div className="mt-1 text-[11px] text-slate-300 whitespace-pre-line">
+                      {releaseNotesContent[entry.version] === undefined && (
+                        <span className="text-slate-500">Loading release notes…</span>
+                      )}
+                      {releaseNotesContent[entry.version] === null && (
+                        <span className="text-slate-500">No release notes available for this version.</span>
+                      )}
+                      {releaseNotesContent[entry.version] && releaseNotesContent[entry.version]}
                     </div>
                   )}
                 </li>

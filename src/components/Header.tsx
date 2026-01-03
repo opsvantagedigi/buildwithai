@@ -9,6 +9,7 @@ export default function Header() {
           <span className="font-heading text-2xl font-bold bg-gradient-to-r from-brand-blue via-brand-green to-brand-yellow bg-clip-text text-transparent tracking-widest">BUILD WITH AI</span>
         </div>
         <nav className="flex gap-6 text-base font-inter">
+          <Link href="/dashboard" className="hover:text-white transition">Dashboard</Link>
           <Link href="/products" className="hover:text-brand-blue transition">Products</Link>
           <Link href="/features" className="hover:text-brand-green transition">Features</Link>
           <Link href="/ai-tools" className="hover:text-brand-yellow transition">AI Tools</Link>

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { exportSiteToStatic } from "@/lib/export/site";
 import { triggerVercelPreviewDeploy } from "@/lib/publish/preview";
+import { updateSiteTimestamp } from "@/lib/sites/registry";
 
 export async function POST(req: Request) {
   try {
@@ -19,6 +20,8 @@ export async function POST(req: Request) {
 
     // Trigger Vercel preview deploy
     const preview = await triggerVercelPreviewDeploy();
+
+    await updateSiteTimestamp(siteId);
 
     return NextResponse.json({
       ok: preview.ok,

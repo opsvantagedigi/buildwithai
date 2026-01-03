@@ -7,6 +7,8 @@ import type { PublishMetadata } from "@/types/publish";
 import type { PublishHistory, PublishHistoryEntry } from "@/types/publish";
 import type { VersionSnapshot } from "@/types/publish";
 import { generateChangelogWithOllama } from "@/lib/ai/changelog";
+import { generateReleaseNotesWithOllama } from "@/lib/ai/releaseNotes";
+import { updateSiteTimestamp } from "@/lib/sites/registry";
 
 const PUBLISH_KEY_PREFIX = "buildwithai:site:publish:";
 const PUBLISH_HISTORY_PREFIX = "buildwithai:site:publish:history:";
@@ -106,9 +108,25 @@ export async function POST(req: NextRequest) {
     const snapshot: VersionSnapshot = {
       ...baseSnapshot,
       changelog: changelog ?? null,
+      releaseNotes: null,
     };
 
     await kv.set(snapshotKey, snapshot);
+
+    // Generate release notes (best-effort)
+    const releaseNotes = await generateReleaseNotesWithOllama({
+        snapshot,
+        changelog: snapshot.changelog ?? null,
+        productionUrl: metadata.lastPublishedUrl ?? null,
+      });
+
+    if (releaseNotes) {
+      snapshot.releaseNotes = releaseNotes;
+      await kv.set(snapshotKey, snapshot);
+    }
+
+    // After successful publish
+    await updateSiteTimestamp(siteId);
 
     return NextResponse.json({
       ok: true,
