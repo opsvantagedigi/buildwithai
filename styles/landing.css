@@ -9,20 +9,50 @@
   will-change: transform;
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.6s cubic-bezier(.2,.9,.3,1) both;
+.animate-fade-in-up {
+  animation: fadeInUp 0.62s cubic-bezier(.2,.9,.3,1) both;
+  transform-origin: 0 0;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-gradient {
     animation: none;
   }
-  .fade-in-up {
-    animation: none;
+  .animate-fade-in-up,
+  .parallax {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }
 
 /* small helper for gradient mask on cards */
 .card-gradient-edge {
   background-image: linear-gradient(90deg, rgba(255,210,63,0.08), transparent);
+}
+
+/* subtle parallax offset variable and defaults */
+:root {
+  --parallax-offset: 0px;
+}
+
+/* focus-visible fallback for browsers that don't support the Tailwind utility */
+.focus-ring {
+  box-shadow: 0 0 0 3px rgba(255,210,63,0.16);
 }
