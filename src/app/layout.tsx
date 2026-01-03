@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="font-inter">
+    <html lang="en" className={`${inter.variable} ${orbitron.variable}`}>
       <head>
         {/* Remove attributes injected by browser extensions (e.g. Grammarly) before React hydrates */}
         <Script id="strip-ext-attrs" strategy="beforeInteractive">
@@ -48,20 +48,7 @@ export default function RootLayout({
   }
 })();`}
         </Script>
-        <link
-          rel="preload"
-          href="/fonts/Orbitron-VariableFont_wght.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Inter-VariableFont_slnt,wght.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
+        {/* Fonts are loaded via next/font (Inter + Orbitron) above; avoid duplicate manual preloads. */}
       </head>
       <body className="antialiased bg-black text-white">
         <Header />
