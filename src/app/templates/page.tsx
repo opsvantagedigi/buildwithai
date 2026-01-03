@@ -1,30 +1,57 @@
-import React from 'react'
-import Hero from '@/components/marketing/Hero'
-import TemplateCategory from '@/components/marketing/TemplateCategory'
-import CTA from '@/components/marketing/CTA'
+"use client";
 
-export const metadata = {
-  title: 'Templates — BUILD WITH AI',
-  description: 'Browse AI-optimized templates for restaurants, agencies, portfolios, stores and more. Customize instantly.',
-  keywords: ['templates', 'website templates', 'AI templates'],
-}
+import { useEffect, useState } from "react";
 
-export default function Page() {
-  const cats = [
-    { title: 'Restaurant', desc: 'Menus, booking, and location-ready pages.' },
-    { title: 'Agency', desc: 'Portfolios, case studies, and team pages.' },
-    { title: 'Portfolio', desc: 'Showcase your work with beautiful project layouts.' },
-  ]
+export default function TemplatesPage() {
+  const [templates, setTemplates] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function load() {
+      const res = await fetch("/api/templates/list");
+      const data = await res.json();
+      setTemplates(data.templates ?? []);
+      setLoading(false);
+    }
+    load();
+  }, []);
 
   return (
-    <main>
-      <Hero kicker="Templates" title="AI-Optimized Templates" subtitle="Kickstart any site with templates built for conversion and speed." />
-      <section className="max-w-6xl mx-auto px-6 py-12 grid gap-6 sm:grid-cols-3">
-        {cats.map((c) => (
-          <TemplateCategory key={c.title} title={c.title} desc={c.desc} />
-        ))}
-      </section>
-      <CTA href="/templates/portfolio">Explore all templates</CTA>
-    </main>
-  )
+    <div className="p-6 text-slate-200 space-y-6">
+      <h1 className="text-xl font-semibold">Choose a Template</h1>
+
+      {loading && <div className="text-slate-400">Loading templates…</div>}
+
+      {!loading && templates.length === 0 && (
+        <div className="text-slate-400">No templates available.</div>
+      )}
+
+      {!loading && templates.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {templates.map((t) => (
+            <div
+              key={t.id}
+              className="border border-slate-700 rounded p-4 space-y-2"
+            >
+              <img
+                src={t.thumbnail}
+                alt={t.name}
+                className="w-full h-40 object-cover rounded"
+              />
+
+              <div className="font-semibold">{t.name}</div>
+              <div className="text-xs text-slate-400">{t.category}</div>
+
+              <a
+                href={`/api/templates/create?templateId=${t.id}`}
+                className="text-sm underline text-blue-300"
+              >
+                Use Template
+              </a>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }

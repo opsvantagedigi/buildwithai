@@ -1,0 +1,27 @@
+{
+  "root": {
+    "type": "page",
+    "props": {
+      "title": "Portfolio",
+      "sections": [
+        {
+          "type": "hero",
+          "props": {
+            "headline": "My Work",
+            "subheadline": "A showcase of selected projects."
+          }
+        },
+        {
+          "type": "gallery",
+          "props": {
+            "items": [
+              { "title": "Project One", "image": "/placeholder1.png" },
+              { "title": "Project Two", "image": "/placeholder2.png" },
+              { "title": "Project Three", "image": "/placeholder3.png" }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

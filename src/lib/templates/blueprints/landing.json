@@ -1,0 +1,27 @@
+{
+  "root": {
+    "type": "page",
+    "props": {
+      "title": "Landing Page",
+      "sections": [
+        {
+          "type": "hero",
+          "props": {
+            "headline": "Welcome to Your New Site",
+            "subheadline": "Built with AI, powered by your vision."
+          }
+        },
+        {
+          "type": "features",
+          "props": {
+            "items": [
+              { "title": "Fast", "description": "Optimized for performance." },
+              { "title": "Beautiful", "description": "Designed with care." },
+              { "title": "Smart", "description": "AI‑powered workflows." }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

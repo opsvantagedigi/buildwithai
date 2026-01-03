@@ -35,6 +35,7 @@ export default function BuilderCanvas({ params }: Props) {
   const [isStaging, setIsStaging] = useState(false);
   const [stagingUrl, setStagingUrl] = useState<string | null>(null);
   const [stagingError, setStagingError] = useState<string | null>(null);
+  const [promoting, setPromoting] = useState(false);
   const [site, setSite] = useState<{ id: string; name: string; createdAt: number; updatedAt: number } | null>(null);
   const [expandedChangelogVersion, setExpandedChangelogVersion] = useState<
     number | null
@@ -413,6 +414,7 @@ export default function BuilderCanvas({ params }: Props) {
             >
               {isPreviewing ? "Previewing…" : "Preview"}
             </button>
+
             <button
               type="button"
               className="inline-flex items-center rounded-full bg-slate-900 text-white text-xs px-4 py-1.5 disabled:opacity-60"
@@ -421,6 +423,13 @@ export default function BuilderCanvas({ params }: Props) {
             >
               {isPublishing ? "Publishing…" : "Publish"}
             </button>
+
+        <a
+          href={`/site/${siteId}/changelog`}
+          className="text-xs underline text-blue-300"
+        >
+          View Changelog
+        </a>
 
             <button
               type="button"
@@ -432,6 +441,7 @@ export default function BuilderCanvas({ params }: Props) {
             >
               {showHistory ? "Hide history" : "View history"}
             </button>
+
             {publishError && (
               <p className="text-[10px] text-red-500 max-w-xs text-right">
                 {publishError}

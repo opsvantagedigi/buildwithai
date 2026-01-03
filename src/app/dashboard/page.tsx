@@ -2,75 +2,72 @@
 
 import { useEffect, useState } from "react";
 
-type SiteEntry = {
-  id: string;
-  name: string;
-  createdAt: number;
-  updatedAt: number;
-};
-
 export default function DashboardPage() {
-  const [sites, setSites] = useState<SiteEntry[]>([]);
+  const [sites, setSites] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function load() {
-      const res = await fetch("/api/sites");
+      const res = await fetch("/api/sites/list");
       const data = await res.json();
-      setSites(data?.sites ?? []);
+      setSites(data.sites ?? []);
       setLoading(false);
     }
     load();
   }, []);
 
   return (
-    <div className="p-6 text-slate-200">
-      <h1 className="text-xl font-semibold mb-4">Sites</h1>
+    <div className="p-6 text-slate-200 space-y-6">
+      <h1 className="text-xl font-semibold">Your Sites</h1>
+
+      <div>
+        <a href="/templates" className="text-sm underline text-blue-300">
+          + New Site
+        </a>
+      </div>
 
       {loading && <div className="text-slate-400">Loading…</div>}
 
       {!loading && sites.length === 0 && (
-        <div className="text-slate-400">No sites found.</div>
+        <div className="text-slate-400">No sites yet.</div>
       )}
 
       {!loading && sites.length > 0 && (
-        <div className="space-y-3">
+        <div className="space-y-4">
           {sites.map((site) => (
             <div
               key={site.id}
-              className="border border-slate-700 rounded p-3 flex items-center justify-between"
+              className="border border-slate-700 rounded p-4 space-y-2"
             >
-              <div>
-                <div className="font-medium">{site.name}</div>
-                <div className="text-xs text-slate-400">
-                  Updated: {new Date(site.updatedAt).toLocaleString()}
-                </div>
-              </div>
+              <div className="font-semibold">{site.name}</div>
 
-              <div className="flex gap-2">
+              <div className="flex gap-4 text-xs">
                 <a
                   href={`/builder/site/${site.id}`}
-                  className="text-xs underline text-blue-300"
+                  className="underline text-blue-300"
                 >
                   Open Builder
                 </a>
+
                 <a
-                  href={`/api/publish/preview?siteId=${site.id}`}
-                  className="text-xs underline text-slate-300"
+                  href={`/site/${site.id}/changelog`}
+                  className="underline text-blue-300"
                 >
-                  Preview
+                  Changelog
                 </a>
-                <a
-                  href={`/api/publish/staging?siteId=${site.id}`}
-                  className="text-xs underline text-purple-300"
-                >
-                  Stage
-                </a>
+
                 <a
                   href={`/api/publish?siteId=${site.id}`}
-                  className="text-xs underline text-green-300"
+                  className="underline text-green-300"
                 >
                   Publish
+                </a>
+
+                <a
+                  href={`/api/publish/promote?siteId=${site.id}`}
+                  className="underline text-yellow-300"
+                >
+                  Promote
                 </a>
               </div>
             </div>

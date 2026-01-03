@@ -30,3 +30,8 @@ export async function saveSiteState(
 
   await kv.set(key, payload);
 }
+
+// Backwards-compatible adapter expected by templates create route
+export async function saveSite(siteId: string, state: BuilderState) {
+  return saveSiteState(siteId, state);
+}
