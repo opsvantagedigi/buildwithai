@@ -51,9 +51,6 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = withMDX({
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
-  turbo: {
-    enabled: false,
-  },
 
   // Keep your existing images CSP override for dev only
   images: {
