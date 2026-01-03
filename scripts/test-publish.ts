@@ -7,7 +7,7 @@
 //
 
 import "dotenv/config";
-import { kv } from "@vercel/kv";
+import kv from "@vercel/kv";
 
 async function main() {
   const siteId = process.argv[2];
