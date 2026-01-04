@@ -9,147 +9,92 @@ export const metadata = {
 }
 
 export default function Home() {
+
   return (
     <main className="landing-root">
-
       <HeroCursorLightProvider />
+      <section className="bw-hero">
+        <div className="bw-hero-inner">
+          {/* LEFT: Story + trust */}
+          <div className="bw-hero-left">
+            <p className="bw-hero-eyebrow">
+              AI WEBSITE BUILDER FOR FOUNDERS
+            </p>
 
-      <section
-        id="hero"
-        className="bw-hero relative overflow-hidden"
-      >
-        {/* Cinematic background layers */}
-        <div className="bw-hero-bg bw-hero-glow-layer" aria-hidden="true" />
-        <div className="bw-hero-bg bw-hero-flow-grid" aria-hidden="true" />
+            <h1 className="bw-hero-title">
+              Build a world-class website with AI,
+              <br />
+              without losing your story.
+            </h1>
 
-        {/* Cursor-reactive light */}
-        <div className="bw-hero-bg bw-hero-cursor-light" aria-hidden="true" />
+            <p className="bw-hero-subtitle">
+              Build With AI is your cinematic, founder-grade website builder. Capture your voice,
+              ship beautiful pages, and keep every deployment auditable, repeatable, and on your terms.
+            </p>
 
-        {/* Content container */}
-        <div className="bw-container bw-hero-inner">
-          <div className="bw-hero-grid">
-            {/* Left: title + subtitle only */}
-            <div className="bw-hero-copy">
-              <h1 className="bw-hero-title">
-                Build a world-class website with AI,
-                <span className="bw-hero-title-highlight"> without losing your story.</span>
-              </h1>
-              <p className="bw-hero-subtitle">
-                Build With AI is your cinematic, founder-grade website builder. Capture your voice,
-                ship beautiful pages, and keep every deployment auditable, repeatable, and on your terms.
-              </p>
+            <p className="bw-hero-trustline">
+              Deterministic builds · No lock-in · Founder-grade rituals
+            </p>
+          </div>
 
-              {/* Left column: title + subtitle only (prompt panel moved to right) */}
-
-              {/* Prompt panel only — CTA moved to right column */}
-            </div>
-
-            {/* Right: CTA + tagline panel (replaces visual preview) */}
-            <div className="bw-hero-visual-wrapper">
-              <div className="bw-hero-visual-glow" aria-hidden="true" />
-
-              {/* Prompt panel — moved from left column to sit above CTA */}
-              {/* Prompt removed from left column (moved underneath right panel) */}
-
-              <div className="bw-hero-cta-panel">
-                <div className="bw-hero-cta-buttons">
-                  <a href="/builder/start" className="bw-btn bw-btn-primary">
-                    Start building with AI
-                  </a>
-                  <a href="/compare/ai-website-builders" className="bw-btn bw-btn-ghost">
-                    See why we’re different
-                  </a>
-                </div>
-                <p className="bw-hero-tagline">Deterministic builds · No lock-in · Founder-grade rituals</p>
+          {/* RIGHT: Founder Brief Composer card */}
+          <div className="bw-hero-right">
+            <div className="bw-hero-brief-card">
+              <div className="bw-hero-brief-header">
+                <span className="bw-pill-new">New</span>
+                <span className="bw-hero-brief-label">
+                  Cinematic AI builder templates
+                </span>
               </div>
 
-              {/* Prompt panel — now placed beneath the cinematic right-hand panel */}
-              <div className="bw-hero-prompt-panel">
-                <div className="bw-hero-prompt-banner">
-                  <span className="bw-hero-prompt-badge">🌟 New</span>
-                  <span className="bw-hero-prompt-banner-text">Introducing cinematic AI builder templates</span>
-                </div>
+              <div className="bw-hero-brief-copy">
+                <h2 className="bw-hero-brief-title">
+                  Describe your website in a few words.
+                </h2>
+                <p className="bw-hero-brief-subtitle">
+                  We turn your founder brief into a cinematic, audit-ready website —
+                  you keep control of every detail.
+                </p>
+              </div>
 
-                <div className="bw-hero-prompt-main">
-                  <h2 className="bw-hero-prompt-title">Describe your website in a few words.</h2>
-                  <p className="bw-hero-prompt-subtitle">
-                    Tell Build With AI what you’re building — we assemble a cinematic layout, you keep control of every detail.
-                  </p>
+              <div className="bw-hero-brief-input-shell">
+                <input
+                  className="bw-hero-brief-input"
+                  type="text"
+                  placeholder="A founder-grade landing page for my AI studio, focused on trust and long-term clients…"
+                />
+              </div>
 
-                  <div className="bw-hero-prompt-input-row">
-                    <div className="bw-hero-prompt-input-shell">
-                      <input
-                        type="text"
-                        className="bw-hero-prompt-input"
-                        placeholder="“A founder-grade landing page for my AI studio…”"
-                        aria-label="Describe your website"
-                      />
-                      <div className="bw-hero-prompt-input-icons">
-                        <button type="button" className="bw-hero-prompt-icon-btn" aria-label="Insert example">+</button>
-                        <button type="button" className="bw-hero-prompt-icon-btn" aria-label="Use microphone">🎤</button>
-                        <button type="button" className="bw-hero-prompt-icon-btn bw-hero-prompt-icon-primary" aria-label="Generate layout">➜</button>
-                      </div>
-                    </div>
-                  </div>
+              <div className="bw-hero-brief-examples">
+                <span className="bw-hero-brief-examples-label">Examples:</span>
+                <span className="bw-hero-brief-example">
+                  Productized consulting studio for deep-tech founders
+                </span>
+                <span className="bw-hero-brief-example">
+                  Cinematic personal site for an AI researcher
+                </span>
+              </div>
 
-                  <div className="bw-hero-prompt-features">
-                    <span className="bw-hero-prompt-feature">Founder-grade templates</span>
-                    <span className="bw-hero-prompt-feature">Instant publishing</span>
-                    <span className="bw-hero-prompt-feature">No lock-in</span>
-                  </div>
-                </div>
+              <div className="bw-hero-brief-chips">
+                <span className="bw-hero-brief-chip">Founder-grade templates</span>
+                <span className="bw-hero-brief-chip">Instant publishing</span>
+                <span className="bw-hero-brief-chip">No lock-in</span>
+              </div>
+
+              <div className="bw-hero-brief-ctas">
+                <a href="/builder/start" className="bw-btn bw-btn-primary bw-btn-orbitron">
+                  Generate my first layout
+                </a>
+                <a href="/about" className="bw-hero-brief-secondary">
+                  Watch a 60-second walkthrough
+                </a>
               </div>
             </div>
-                {/* Right: rebuilt CTA row + cinematic prompt card */}
-                <div className="bw-hero-right">
-                  <div className="bw-hero-visual-glow" aria-hidden="true" />
-
-                  {/* 1) CTA row (compact, no card) */}
-                  <div className="bw-hero-cta-row">
-                    <div className="bw-hero-cta-buttons">
-                      <a href="/builder/start" className="bw-btn bw-btn-primary bw-btn-orbitron">
-                        Start building with AI
-                      </a>
-                      <a href="/compare/ai-website-builders" className="bw-btn bw-btn-ghost bw-btn-secondary">
-                        See why we’re different
-                      </a>
-                    </div>
-                    <p className="bw-hero-tagline">Deterministic builds · No lock-in · Founder-grade rituals</p>
-                  </div>
-
-                  {/* 2) Cinematic prompt card */}
-                  <div className="bw-hero-prompt-card">
-                    <div className="bw-hero-prompt-header">
-                      <span className="bw-pill-new">New</span>
-                      <span className="bw-hero-prompt-eyebrow">Introducing cinematic AI builder templates</span>
-                    </div>
-
-                    <div className="bw-hero-prompt-copy">
-                      <h3 className="bw-hero-prompt-title">Describe your website in a few words.</h3>
-                      <p className="bw-hero-prompt-subtitle">Tell Build With AI what you're building — we assemble a cinematic layout, you keep control of every detail.</p>
-                    </div>
-
-                    <div className="bw-hero-prompt-input-shell">
-                      <input
-                        className="bw-hero-prompt-input"
-                        type="text"
-                        placeholder="A founder-grade landing page for my AI studio…"
-                        aria-label="Describe your website"
-                      />
-                    </div>
-
-                    <div className="bw-hero-prompt-tags">
-                      <span className="bw-hero-prompt-tag">Founder-grade templates</span>
-                      <span className="bw-hero-prompt-tag">Instant publishing</span>
-                      <span className="bw-hero-prompt-tag">No lock-in</span>
-                    </div>
-                  </div>
-                </div>
           </div>
         </div>
       </section>
 
-      {/* Intent-aware AI */}
+      {/* ...existing code... */}
       <section id="solutions" className="bw-section bw-intent">
         <div className="bw-section-header container">
           <h2 className="bw-section-title">AI that understands what you&apos;re building.</h2>
