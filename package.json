@@ -18,12 +18,14 @@
     "@vercel/kv": "^0.1.0",
     "next": "16.1.1",
     "next-mdx-remote": "^5.0.0",
-    "redis": "^5.10.0"
+    "node-fetch": "^2.7.0",
+    "redis": "^5.10.0",
+    "tweetsodium": "^0.0.4"
   },
   "devDependencies": {
     "@mdx-js/react": "^2.3.0",
-    "@storybook/react": "^7.0.0",
     "@storybook/addon-essentials": "^7.0.0",
+    "@storybook/react": "^7.0.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",

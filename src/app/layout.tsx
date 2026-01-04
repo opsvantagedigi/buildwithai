@@ -8,7 +8,7 @@ const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-orbitron' });
 import "./globals.css";
 import "@/assets/gds.css";
 import "@/assets/docs.css";
-import "../../styles/landing.css";
+import "@/styles/landing.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from 'next/script'
