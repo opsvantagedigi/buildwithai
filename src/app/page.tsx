@@ -13,8 +13,8 @@ export default function Home() {
       <header className="landing-header glass glass-edge-gradient">
         <div className="container">
           <div className="brand">
-            <h1 className="brand-mark">Build With AI</h1>
-            <p className="brand-tag">AI-Native Web Infrastructure</p>
+            <h1 className="brand-mark font-orbitron">Build With AI</h1>
+            <p className="brand-tag font-inter">AI-Native Web Infrastructure</p>
           </div>
           <nav className="nav orbitron">
             <ul>
@@ -29,8 +29,8 @@ export default function Home() {
 
       <section className="hero container cinematic">
         <div className="hero-content">
-          <h2 className="orbitron headline">Ship AI-first websites with confidence</h2>
-          <p className="inter subhead">Intent-aware generation, structure-first layouts, and continuous optimization — built for teams that move fast and stay reliable.</p>
+          <h2 className="orbitron headline font-orbitron">Ship AI-first websites with confidence</h2>
+          <p className="inter subhead font-inter">Intent-aware generation, structure-first layouts, and continuous optimization — built for teams that move fast and stay reliable.</p>
           <div className="cta-stack">
             <a className="btn primary" href="/builder">Start building — free</a>
             <a className="btn ghost" href="/docs">How it works</a>
@@ -52,47 +52,47 @@ export default function Home() {
       </section>
 
       <section className="intent-aware container">
-        <h3 className="section-title">Intent-aware AI</h3>
-        <p className="lead">Our AI adapts to user intent and business goals — not just templates. It reasons about purpose, then maps that intent to structure and content that scales.</p>
+        <h3 className="section-title font-orbitron">Intent-aware AI</h3>
+        <p className="lead font-inter">Our AI adapts to user intent and business goals — not just templates. It reasons about purpose, then maps that intent to structure and content that scales.</p>
       </section>
 
       <section className="how container">
-        <h3 className="section-title">How it works</h3>
+        <h3 className="section-title font-orbitron">How it works</h3>
         <ol className="steps">
-          <li><strong>Define intent:</strong> Describe goals, users, and outcomes.</li>
-          <li><strong>Structure:</strong> AI proposes information architecture and layout.</li>
-          <li><strong>Generate:</strong> Content and components are produced and reviewed.</li>
-          <li><strong>Optimize:</strong> Continuous learning refines copy and UX.</li>
+          <li><strong className="font-orbitron">Define intent:</strong> <span className="font-inter">Describe goals, users, and outcomes.</span></li>
+          <li><strong className="font-orbitron">Structure:</strong> <span className="font-inter">AI proposes information architecture and layout.</span></li>
+          <li><strong className="font-orbitron">Generate:</strong> <span className="font-inter">Content and components are produced and reviewed.</span></li>
+          <li><strong className="font-orbitron">Optimize:</strong> <span className="font-inter">Continuous learning refines copy and UX.</span></li>
         </ol>
       </section>
 
       <section className="features container">
-        <h3 className="section-title">Features by intelligence layer</h3>
+        <h3 className="section-title font-orbitron">Features by intelligence layer</h3>
         <div className="feature-grid">
           <article className="feature">
-            <h4>Perception</h4>
-            <p>Data ingest, content understanding, and semantic indexing.</p>
+            <h4 className="font-orbitron">Perception</h4>
+            <p className="font-inter">Data ingest, content understanding, and semantic indexing.</p>
           </article>
           <article className="feature">
-            <h4>Reasoning</h4>
-            <p>Intent mapping, structure synthesis, and decision trees.</p>
+            <h4 className="font-orbitron">Reasoning</h4>
+            <p className="font-inter">Intent mapping, structure synthesis, and decision trees.</p>
           </article>
           <article className="feature">
-            <h4>Generation</h4>
-            <p>High-fidelity content, layout code, and assets.</p>
+            <h4 className="font-orbitron">Generation</h4>
+            <p className="font-inter">High-fidelity content, layout code, and assets.</p>
           </article>
           <article className="feature">
-            <h4>Optimization</h4>
-            <p>Performance tuning, A/B suggestions, and iterative improvement.</p>
+            <h4 className="font-orbitron">Optimization</h4>
+            <p className="font-inter">Performance tuning, A/B suggestions, and iterative improvement.</p>
           </article>
         </div>
       </section>
 
       <section className="comparison container">
-        <h3 className="section-title">Automation vs Intelligence</h3>
+        <h3 className="section-title font-orbitron">Automation vs Intelligence</h3>
         <div className="comparison-grid">
           <div className="col auto">
-            <h4>Automation</h4>
+            <h4 className="font-orbitron">Automation</h4>
             <ul>
               <li>Repeatable tasks</li>
               <li>Rule-driven</li>
@@ -100,7 +100,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="col intel">
-            <h4>Intelligence</h4>
+            <h4 className="font-orbitron">Intelligence</h4>
             <ul>
               <li>Goal-directed decisions</li>
               <li>Context-aware</li>
@@ -111,14 +111,14 @@ export default function Home() {
       </section>
 
       <section className="emotional-cta container glass">
-        <h3>Build with calm confidence</h3>
-        <p className="lead">Join teams using AI-native infrastructure to deliver predictable outcomes and human-centered experiences.</p>
+        <h3 className="font-orbitron">Build with calm confidence</h3>
+        <p className="lead font-inter">Join teams using AI-native infrastructure to deliver predictable outcomes and human-centered experiences.</p>
         <a className="btn large primary" href="/signup">Get early access</a>
       </section>
 
       <footer className="landing-footer glass glass-edge-gradient">
         <div className="container footer-inner">
-          <p>Building the future of AI-native websites.</p>
+          <p className="font-inter">Building the future of AI-native websites.</p>
           <small>&copy; {new Date().getFullYear()} Build With AI</small>
         </div>
       </footer>

@@ -12,14 +12,14 @@ h1, h2, h3 {
 }
 
 body {
-  font-family: var(--font-family-body);
+  font-family: var(--font-inter);
   background-color: #0A0F1F; /* Charcoal Blue base */
   color: #E6EEF3;
   min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-headings);
+  font-family: var(--font-orbitron);
 }
 
 /* Semantic utility to apply the brand heading font where needed */
@@ -56,8 +56,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @layer components {
-  .font-orbitron { font-family: OrbitronLocal, Orbitron, sans-serif; }
-  .font-inter { font-family: InterLocal, Inter, sans-serif; }
+  .font-orbitron { font-family: var(--font-orbitron); }
+  .font-inter { font-family: var(--font-inter); }
 
   .glass-header {
     background: rgba(255,255,255,0.04);

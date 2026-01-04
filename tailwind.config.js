@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        orbitron: ["Orbitron", "sans-serif"],
-        inter: ["Inter", "sans-serif"],
+        orbitron: ["var(--font-orbitron)", "Orbitron", "sans-serif"],
+        inter: ["var(--font-inter)", "Inter", "sans-serif"],
       },
       backgroundImage: {
         'brand-gradient': 'linear-gradient(90deg,#011A4B,#00594C 55%,#FFD23F)',

@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${orbitron.variable}`}>
+    <html lang="en">
       <head>
         {/* Remove attributes injected by browser extensions (e.g. Grammarly) before React hydrates */}
         <Script id="strip-ext-attrs" strategy="beforeInteractive">
@@ -48,7 +48,7 @@ export default function RootLayout({
         </Script>
         {/* Fonts are loaded via next/font (Inter + Orbitron) above; avoid duplicate manual preloads. */}
       </head>
-      <body className="antialiased bg-black text-white">
+      <body className={`${inter.variable} ${orbitron.variable} antialiased bg-black text-white`}>
         <Header />
         <div className="site-content">
           {children}
