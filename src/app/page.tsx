@@ -28,9 +28,8 @@ export default function Home() {
         {/* Content container */}
         <div className="bw-container bw-hero-inner">
           <div className="bw-hero-grid">
-            {/* Left: text content */}
+            {/* Left: title + subtitle only */}
             <div className="bw-hero-copy">
-              <p className="bw-eyebrow">AI Website Builder for founders who care</p>
               <h1 className="bw-hero-title">
                 Build a world-class website with AI,
                 <span className="bw-hero-title-highlight"> without losing your story.</span>
@@ -50,6 +49,21 @@ export default function Home() {
               <div className="bw-hero-visual-glow" aria-hidden="true" />
 
               {/* Prompt panel — moved from left column to sit above CTA */}
+              {/* Prompt removed from left column (moved underneath right panel) */}
+
+              <div className="bw-hero-cta-panel">
+                <div className="bw-hero-cta-buttons">
+                  <a href="/builder/start" className="bw-btn bw-btn-primary">
+                    Start building with AI
+                  </a>
+                  <a href="/compare/ai-website-builders" className="bw-btn bw-btn-ghost">
+                    See why we’re different
+                  </a>
+                </div>
+                <p className="bw-hero-tagline">Deterministic builds · No lock-in · Founder-grade rituals</p>
+              </div>
+
+              {/* Prompt panel — now placed beneath the cinematic right-hand panel */}
               <div className="bw-hero-prompt-panel">
                 <div className="bw-hero-prompt-banner">
                   <span className="bw-hero-prompt-badge">🌟 New</span>
@@ -84,18 +98,6 @@ export default function Home() {
                     <span className="bw-hero-prompt-feature">No lock-in</span>
                   </div>
                 </div>
-              </div>
-
-              <div className="bw-hero-cta-panel">
-                <div className="bw-hero-cta-buttons">
-                  <a href="/builder/start" className="bw-btn bw-btn-primary">
-                    Start building with AI
-                  </a>
-                  <a href="/compare/ai-website-builders" className="bw-btn bw-btn-ghost">
-                    See why we’re different
-                  </a>
-                </div>
-                <p className="bw-hero-tagline">Deterministic builds · No lock-in · Founder-grade rituals</p>
               </div>
             </div>
           </div>

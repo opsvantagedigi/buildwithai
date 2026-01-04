@@ -767,8 +767,9 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Keep visual wrapper after the left column on mobile so the prompt sits beneath it */
   .bw-hero-visual-wrapper {
-    order: -1;
+    order: 0;
   }
 }
 
@@ -1094,14 +1095,16 @@
 .bw-hero-prompt-input-shell {
   display: flex;
   align-items: center;
-  border-radius: 999px;
-  padding: 0.25rem 0.35rem 0.25rem 0.85rem;
-  background-color: rgba(15, 23, 42, 0.9);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(15, 23, 42, 0.94);
   border: 1px solid rgba(148, 163, 184, 0.65);
+  min-height: 52px;
+  width: 100%;
 }
 
-.bw-hero-prompt-input { flex: 1; border: none; outline: none; background: transparent; color: #e5e7f3; font-size: 0.9rem; }
-.bw-hero-prompt-input::placeholder { color: rgba(148, 163, 184, 0.7); }
+.bw-hero-prompt-input { flex: 1; border: none; outline: none; background: transparent; color: #e5e7f3; font-size: 1rem; line-height: 1.4; }
+.bw-hero-prompt-input::placeholder { color: rgba(148, 163, 184, 0.85); }
 
 .bw-hero-prompt-input-icons { display: inline-flex; align-items: center; gap: 0.25rem; margin-left: 0.4rem; }
 
@@ -1133,6 +1136,8 @@
   padding: 1rem;
   gap: 1rem;
 }
+
+.bw-hero-cta-panel { margin-bottom: 1rem; }
 
 .bw-hero-cta-buttons {
   display: flex;
