@@ -672,7 +672,7 @@
     animation: fade-in-up 0.62s cubic-bezier(.2,.9,.3,1) both;
     transform-origin: 0 0;
   }
-}
+
 
 @keyframes fade-in-up {
   0% {
