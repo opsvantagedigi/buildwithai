@@ -1,7 +1,6 @@
 name: Site Discovery Validation
 
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
   run-discovery:
@@ -41,7 +40,7 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install -y jq
 
-      - name: Health check — KV endpoint
+      - name: Health check - KV endpoint
         run: |
           echo "Checking KV health at: $TEST_BASE_URL/api/kv/health"
 
@@ -62,14 +61,14 @@ jobs:
               ok=$(echo "$body" | jq -r '.success // empty')
 
               if [ "$ok" = "true" ]; then
-                echo "✅ KV health check passed (status: $status, ok=$ok)"
+                echo "KV health check passed (status: $status, ok=$ok)"
                 exit 0
               else
-                echo "⚠️ KV health returned 200 but ok!=true (ok=$ok)."
+                echo "KV health returned 200 but ok!=true (ok=$ok)."
                 echo "Full response body logged above."
               fi
             else
-              echo "⚠️ KV health returned non-200 status: $status"
+              echo "KV health returned non-200 status: $status"
               echo "Full response body logged above."
             fi
 
@@ -77,7 +76,7 @@ jobs:
             sleep $delay
           done
 
-          echo "❌ KV health check FAILED after $attempts attempts."
+          echo "KV health check FAILED after $attempts attempts."
           exit 1
 
       - name: Run discovery script
