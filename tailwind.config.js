@@ -18,18 +18,18 @@ module.exports = {
         'brand-yellow': '#FFD23F',
       },
       keyframes: {
-        gradientShift: {
+        'gradient-shift': {
           '0%': { backgroundPosition: '0% 50%' },
           '100%': { backgroundPosition: '100% 50%' },
         },
-        fadeInUp: {
+        'fade-in-up': {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
       animation: {
-        'gradient-slow': 'gradientShift 12s ease-in-out infinite alternate',
-        'fade-in-up': 'fadeInUp 0.6s cubic-bezier(.2,.9,.3,1) both',
+        'gradient-slow': 'gradient-shift 12s ease-in-out infinite alternate',
+        'fade-in-up': 'fade-in-up 0.6s cubic-bezier(.2,.9,.3,1) both',
       },
     },
   },
