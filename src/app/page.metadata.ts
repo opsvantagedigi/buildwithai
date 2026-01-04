@@ -1,7 +1,9 @@
 export const metadata = {
   title: "Build With AI",
-  description: "Founder-grade AI website builder. Cinematic layouts. Audit-ready deployments.",
+  description: "Founder-grade AI website builder.",
   icons: {
     icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
