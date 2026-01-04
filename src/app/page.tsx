@@ -100,6 +100,51 @@ export default function Home() {
                 </div>
               </div>
             </div>
+                {/* Right: rebuilt CTA row + cinematic prompt card */}
+                <div className="bw-hero-right">
+                  <div className="bw-hero-visual-glow" aria-hidden="true" />
+
+                  {/* 1) CTA row (compact, no card) */}
+                  <div className="bw-hero-cta-row">
+                    <div className="bw-hero-cta-buttons">
+                      <a href="/builder/start" className="bw-btn bw-btn-primary bw-btn-orbitron">
+                        Start building with AI
+                      </a>
+                      <a href="/compare/ai-website-builders" className="bw-btn bw-btn-ghost bw-btn-secondary">
+                        See why we’re different
+                      </a>
+                    </div>
+                    <p className="bw-hero-tagline">Deterministic builds · No lock-in · Founder-grade rituals</p>
+                  </div>
+
+                  {/* 2) Cinematic prompt card */}
+                  <div className="bw-hero-prompt-card">
+                    <div className="bw-hero-prompt-header">
+                      <span className="bw-pill-new">New</span>
+                      <span className="bw-hero-prompt-eyebrow">Introducing cinematic AI builder templates</span>
+                    </div>
+
+                    <div className="bw-hero-prompt-copy">
+                      <h3 className="bw-hero-prompt-title">Describe your website in a few words.</h3>
+                      <p className="bw-hero-prompt-subtitle">Tell Build With AI what you're building — we assemble a cinematic layout, you keep control of every detail.</p>
+                    </div>
+
+                    <div className="bw-hero-prompt-input-shell">
+                      <input
+                        className="bw-hero-prompt-input"
+                        type="text"
+                        placeholder="A founder-grade landing page for my AI studio…"
+                        aria-label="Describe your website"
+                      />
+                    </div>
+
+                    <div className="bw-hero-prompt-tags">
+                      <span className="bw-hero-prompt-tag">Founder-grade templates</span>
+                      <span className="bw-hero-prompt-tag">Instant publishing</span>
+                      <span className="bw-hero-prompt-tag">No lock-in</span>
+                    </div>
+                  </div>
+                </div>
           </div>
         </div>
       </section>
