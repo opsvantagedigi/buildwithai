@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Local font-face definitions */
 @font-face {
-  font-family: 'InterLocal';
+  font-family: InterLocal;
   src: url('/fonts/inter/Inter-Regular.woff2') format('woff2');
   font-weight: 400 700;
   font-style: normal;
@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @font-face {
-  font-family: 'OrbitronLocal';
+  font-family: OrbitronLocal;
   src: url('/fonts/orbitron/Orbitron-Regular.woff2') format('woff2');
   font-weight: 400 700;
   font-style: normal;
@@ -37,19 +37,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :root {
-  --font-family-body: 'InterLocal', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-family-body: 'InterLocal', system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue', arial;
   --font-family-headings: 'OrbitronLocal', 'InterLocal', system-ui, sans-serif;
   --site-header-height: 72px;
   --site-footer-height: 140px;
   --color-base: #0A0F1F;
-  --glass-bg: rgba(255,255,255,0.06);
-  --glass-border: rgba(255,255,255,0.08);
+  --glass-bg: rgb(255 255 255 / 6%);
+  --glass-border: rgb(255 255 255 / 8%);
 }
 
 /* Gradient text utility (Orbitron headings use this) */
 .gradient-text {
   background: linear-gradient(90deg, #0b3b8a 0%, #0bb38a 50%, #f5d300 100%);
-  -webkit-background-clip: text;
+  background-clip: text;
   background-clip: text;
   color: transparent;
 }
@@ -74,9 +74,10 @@ h1, h2, h3 {
   line-height: 1.05;
   margin-top: 0;
   margin-bottom: 0.75rem;
+
   /* enforce gradient text on major headings */
   background: linear-gradient(90deg, #0b3b8a 0%, #0bb38a 50%, #f5d300 100%);
-  -webkit-background-clip: text;
+  background-clip: text;
   background-clip: text;
   color: transparent;
 }
@@ -84,7 +85,7 @@ h1, h2, h3 {
 /* Body text defaults */
 p, span, li, a, input, label {
   font-family: var(--font-family-body);
-  color: rgba(255,255,255,0.85);
+  color: rgb(255 255 255 / 85%);
 }
 
 /* Spacing presets (tailwind-like helpers for non-tailwind places) */
