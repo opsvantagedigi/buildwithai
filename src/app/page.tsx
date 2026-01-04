@@ -1,14 +1,13 @@
-import React from 'react'
+"use client";
+"use client";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import '@/styles/landing.css'
 import { HeroCursorLightProvider } from '@/components/HeroCursorLightProvider'
 
-export const metadata = {
-  title: 'Build With AI — AI-Native Web Infrastructure',
-  description:
-    'Calm, confident, intelligent tools for launching AI-native websites — intent-aware, structure-first, and optimized over time.',
-}
-
 export default function Home() {
+  const [brief, setBrief] = useState("");
+  const router = useRouter();
 
   return (
     <main className="landing-root">
@@ -62,6 +61,8 @@ export default function Home() {
                   className="bw-hero-brief-input"
                   type="text"
                   placeholder="A founder-grade landing page for my AI studio, focused on trust and long-term clients…"
+                  value={brief}
+                  onChange={e => setBrief(e.target.value)}
                 />
               </div>
 
@@ -82,9 +83,19 @@ export default function Home() {
               </div>
 
               <div className="bw-hero-brief-ctas">
-                <a href="/builder/start" className="bw-btn bw-btn-primary bw-btn-orbitron">
+                <button
+                  type="button"
+                  className="bw-btn bw-btn-primary bw-btn-orbitron"
+                  onClick={() => {
+                    const params = new URLSearchParams();
+                    if (brief.trim()) {
+                      params.set("brief", brief.trim());
+                    }
+                    router.push(`/builder/start${params.toString() ? `?${params.toString()}` : ""}`);
+                  }}
+                >
                   Generate my first layout
-                </a>
+                </button>
                 <a href="/about" className="bw-hero-brief-secondary">
                   Watch a 60-second walkthrough
                 </a>
