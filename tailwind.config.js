@@ -1,7 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/**/*.{js,ts,jsx,tsx}',
+    './src/app/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/assets/**/*.{css}',
+    './src/styles/**/*.{css}',
   ],
   theme: {
     extend: {
@@ -33,5 +37,23 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    'text-center',
+    'bg-black',
+    'text-white',
+    'font-orbitron',
+    'font-inter',
+    'animate-fade-in',
+    'hover:scale-105',
+    'glass-header',
+    'glass-footer',
+    'menu-item',
+    'footer-link',
+    'footer-section',
+    'footer-heading',
+    'footer-logo',
+    'footer-social',
+    'footer-legal',
+  ],
   plugins: [],
 }

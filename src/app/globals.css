@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global font fallbacks applied to html and headings to enforce brand fonts */
+html {
+  font-family: InterLocal, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: OrbitronLocal, Orbitron, InterLocal, system-ui, sans-serif;
+}
+
 body {
   font-family: var(--font-family-body);
   background-color: #0A0F1F; /* Charcoal Blue base */
@@ -44,6 +53,40 @@ h1, h2, h3, h4, h5, h6 {
   --color-base: #0A0F1F;
   --glass-bg: rgb(255 255 255 / 6%);
   --glass-border: rgb(255 255 255 / 8%);
+}
+
+@layer components {
+  .font-orbitron { font-family: OrbitronLocal, Orbitron, sans-serif; }
+  .font-inter { font-family: InterLocal, Inter, sans-serif; }
+
+  .glass-header {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+  }
+
+  .glass-footer {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .menu-item {
+    transition: transform 180ms ease, box-shadow 180ms ease, color 150ms ease;
+    display: inline-block;
+  }
+  .menu-item:hover { transform: scale(1.05); }
+
+  .footer-link { color: rgba(255,255,255,0.9); }
+  .footer-section { padding: 0.25rem 0; }
+  .footer-heading { font-family: OrbitronLocal, Orbitron, sans-serif; font-weight:700; }
+  .footer-logo { font-family: OrbitronLocal, Orbitron, sans-serif; font-weight:800; }
+  .footer-social { display:flex; gap:0.5rem; }
+  .footer-legal { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+
 }
 
 /* Gradient text utility (Orbitron headings use this) */
