@@ -77,38 +77,22 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bw-hero-cta-row">
-                <a href="/builder/start" className="bw-btn bw-btn-primary">
-                  Start building with AI
-                </a>
-                <a href="/compare/ai-website-builders" className="bw-btn bw-btn-ghost">
-                  See why we’re different
-                </a>
-              </div>
-
-              <div className="bw-hero-meta">
-                <span>Deterministic builds · No lock-in · Founder-grade rituals</span>
-              </div>
+              {/* Prompt panel only — CTA moved to right column */}
             </div>
 
-            {/* Right: hero visual panel */}
+            {/* Right: CTA + tagline panel (replaces visual preview) */}
             <div className="bw-hero-visual-wrapper">
               <div className="bw-hero-visual-glow" aria-hidden="true" />
-              <div className="bw-hero-visual-panel">
-                <div className="bw-hero-visual-header">
-                  <span className="bw-pill">Live preview</span>
-                  <span className="bw-hero-visual-meta">Cinematic AI layout · In one click</span>
+              <div className="bw-hero-cta-panel">
+                <div className="bw-hero-cta-buttons">
+                  <a href="/builder/start" className="bw-btn bw-btn-primary">
+                    Start building with AI
+                  </a>
+                  <a href="/compare/ai-website-builders" className="bw-btn bw-btn-ghost">
+                    See why we’re different
+                  </a>
                 </div>
-                <div className="bw-hero-visual-body">
-                  <div className="bw-hero-visual-line bw-hero-visual-line-primary" />
-                  <div className="bw-hero-visual-line bw-hero-visual-line-secondary" />
-                  <div className="bw-hero-visual-mock">
-                    <span className="bw-hero-visual-mock-title">Your brand, not a template.</span>
-                    <span className="bw-hero-visual-mock-subtitle">
-                      AI assembles sections, you keep control of every detail.
-                    </span>
-                  </div>
-                </div>
+                <p className="bw-hero-tagline">Deterministic builds · No lock-in · Founder-grade rituals</p>
               </div>
             </div>
           </div>

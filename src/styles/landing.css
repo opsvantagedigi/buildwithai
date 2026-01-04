@@ -1123,3 +1123,46 @@
 :root.light .bw-hero-prompt-input { color: #0f172a; }
 :root.light .bw-hero-prompt-input::placeholder { color: rgba(148, 163, 184, 0.9); }
 :root.light .bw-hero-prompt-feature { background-color: rgba(241, 245, 249, 0.98); color: #0f172a; }
+
+/* Right-hand CTA panel for hero */
+.bw-hero-cta-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.bw-hero-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.bw-hero-tagline {
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.75);
+  margin-top: 0.5rem;
+}
+
+:root.light .bw-hero-tagline {
+  color: #475569;
+}
+
+/* Ensure hero remains responsive when right panel holds CTAs */
+.bw-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .bw-hero {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .bw-hero-inner { width: 100%; }
+}
