@@ -30,22 +30,30 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </head>
       <body className={`${inter.variable} ${orbitron.variable} antialiased theme-bg theme-text`}>
         <div className="app-shell">
           <header className="bw-header glass-surface cinematic-header">
             <div className="bw-header-inner">
-              <div className="bw-logo">Build With AI</div>
+              <div className="bw-logo-wrapper">
+                <img src="/icon.svg" alt="Build With AI icon" className="bw-logo-icon" />
+                <div className="bw-logo-text">Build With AI</div>
+              </div>
 
               <nav className="bw-nav">
-                <a href="#platform" className="bw-nav-link">Platform</a>
-                <a href="#solutions" className="bw-nav-link">Solutions</a>
-                <a href="#docs" className="bw-nav-link">Docs</a>
-                <a href="#pricing" className="bw-nav-link">Pricing</a>
+                <a href="#platform" className="bw-nav-link bw-header-link">Platform</a>
+                <a href="#solutions" className="bw-nav-link bw-header-link">Solutions</a>
+                <a href="#docs" className="bw-nav-link bw-header-link">Docs</a>
+                <a href="#pricing" className="bw-nav-link bw-header-link">Pricing</a>
               </nav>
 
               <div className="bw-header-actions">
                 <button className="bw-link-button">Sign in</button>
-                <a href="#start" className="bw-cta bw-cta-primary">Start building — free</a>
+                <a href="#start" className="bw-cta bw-cta-primary bw-btn-orbitron">Start building — free</a>
                 <ThemeToggle />
                 <button className="bw-mobile-menu-toggle" aria-label="Open menu">☰</button>
               </div>
@@ -57,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="#solutions" className="bw-mobile-link">Solutions</a>
               <a href="#docs" className="bw-mobile-link">Docs</a>
               <a href="#pricing" className="bw-mobile-link">Pricing</a>
-              <a href="#start" className="bw-cta bw-cta-primary bw-mobile-cta">Start building — free</a>
+              <a href="#start" className="bw-cta bw-cta-primary bw-mobile-cta bw-btn-orbitron">Start building — free</a>
             </div>
           </header>
 

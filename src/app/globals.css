@@ -160,3 +160,29 @@ p, span, li, a, input, label {
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(12px);
 }
+
+/* Header & logo refinements */
+.bw-logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bw-logo-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.bw-logo-text {
+  font-family: var(--font-orbitron);
+  font-weight: 700;
+}
+
+.bw-header-link {
+  font-size: 1.05rem;
+}
+
+.bw-btn-orbitron {
+  font-family: var(--font-orbitron);
+  font-weight: 700;
+}

@@ -49,6 +49,43 @@ export default function Home() {
                 ship beautiful pages, and keep every deployment auditable, repeatable, and on your terms.
               </p>
 
+              {/* Cinematic prompt panel - new */}
+              <div className="bw-hero-prompt-panel">
+                <div className="bw-hero-prompt-banner">
+                  <span className="bw-hero-prompt-badge">🌟 New</span>
+                  <span className="bw-hero-prompt-banner-text">Introducing cinematic AI builder templates</span>
+                </div>
+
+                <div className="bw-hero-prompt-main">
+                  <h2 className="bw-hero-prompt-title">Describe your website in a few words.</h2>
+                  <p className="bw-hero-prompt-subtitle">
+                    Tell Build With AI what you’re building — we assemble a cinematic layout, you keep control of every detail.
+                  </p>
+
+                  <div className="bw-hero-prompt-input-row">
+                    <div className="bw-hero-prompt-input-shell">
+                      <input
+                        type="text"
+                        className="bw-hero-prompt-input"
+                        placeholder="“A founder-grade landing page for my AI studio…”"
+                        aria-label="Describe your website"
+                      />
+                      <div className="bw-hero-prompt-input-icons">
+                        <button type="button" className="bw-hero-prompt-icon-btn" aria-label="Insert example">+</button>
+                        <button type="button" className="bw-hero-prompt-icon-btn" aria-label="Use microphone">🎤</button>
+                        <button type="button" className="bw-hero-prompt-icon-btn bw-hero-prompt-icon-primary" aria-label="Generate layout">➜</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bw-hero-prompt-features">
+                    <span className="bw-hero-prompt-feature">Founder-grade templates</span>
+                    <span className="bw-hero-prompt-feature">Instant publishing</span>
+                    <span className="bw-hero-prompt-feature">No lock-in</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="bw-hero-cta-row">
                 <a href="/builder/start" className="bw-btn bw-btn-primary">
                   Start building with AI

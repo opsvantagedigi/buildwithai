@@ -1058,3 +1058,68 @@
   -webkit-background-clip: text;
   color: transparent;
 }
+
+/* Cinematic prompt panel styles */
+.bw-hero-prompt-panel {
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-radius: 1.25rem;
+  padding: 1.1rem 1.1rem 1.2rem;
+  background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.22), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.85);
+}
+
+.bw-hero-prompt-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  background-color: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  margin-bottom: 0.75rem;
+}
+
+.bw-hero-prompt-badge { font-size: 0.75rem; }
+.bw-hero-prompt-banner-text { font-size: 0.75rem; color: rgba(226, 232, 240, 0.85); }
+
+.bw-hero-prompt-main { margin-top: 0.2rem; }
+
+.bw-hero-prompt-title { font-size: 1.05rem; font-weight: 600; color: #e5e7f3; margin-bottom: 0.25rem; }
+.bw-hero-prompt-subtitle { font-size: 0.9rem; color: rgba(203, 213, 225, 0.85); margin-bottom: 0.9rem; }
+
+.bw-hero-prompt-input-row { margin-bottom: 0.8rem; }
+
+.bw-hero-prompt-input-shell {
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.25rem 0.35rem 0.25rem 0.85rem;
+  background-color: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.65);
+}
+
+.bw-hero-prompt-input { flex: 1; border: none; outline: none; background: transparent; color: #e5e7f3; font-size: 0.9rem; }
+.bw-hero-prompt-input::placeholder { color: rgba(148, 163, 184, 0.7); }
+
+.bw-hero-prompt-input-icons { display: inline-flex; align-items: center; gap: 0.25rem; margin-left: 0.4rem; }
+
+.bw-hero-prompt-icon-btn { width: 26px; height: 26px; border-radius: 999px; border: none; background-color: rgba(15, 23, 42, 0.9); color: rgba(226, 232, 240, 0.9); display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; cursor: pointer; }
+.bw-hero-prompt-icon-primary { background-image: var(--bw-accent-gradient); color: #0b0f1a; }
+
+.bw-hero-prompt-features { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.bw-hero-prompt-feature { font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; background-color: rgba(15, 23, 42, 0.9); color: rgba(226, 232, 240, 0.9); border: 1px solid rgba(148, 163, 184, 0.6); }
+
+:root.light .bw-hero-prompt-panel {
+  background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.22), transparent 60%), rgba(248, 250, 252, 0.98);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(148, 163, 184, 0.35);
+}
+
+:root.light .bw-hero-prompt-title { color: #0f172a; }
+:root.light .bw-hero-prompt-subtitle { color: #475569; }
+:root.light .bw-hero-prompt-input-shell { background-color: rgba(241, 245, 249, 0.98); }
+:root.light .bw-hero-prompt-input { color: #0f172a; }
+:root.light .bw-hero-prompt-input::placeholder { color: rgba(148, 163, 184, 0.9); }
+:root.light .bw-hero-prompt-feature { background-color: rgba(241, 245, 249, 0.98); color: #0f172a; }

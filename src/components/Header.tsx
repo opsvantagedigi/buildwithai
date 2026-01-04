@@ -7,8 +7,9 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 glass-header">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 bw-container" style={{height: 'var(--site-header-height)'}}>
         <div className="flex items-center gap-3">
-          <Link href="/" className="inline-block">
-            <span className="font-heading font-orbitron text-2xl font-bold gradient-text tracking-widest">BUILD WITH AI</span>
+          <Link href="/" className="inline-block bw-logo-wrapper">
+            <img src="/icon.svg" alt="Build With AI icon" className="bw-logo-icon" />
+            <span className="bw-logo-text">Build With AI</span>
           </Link>
         </div>
         <nav className="hidden md:flex gap-6 text-base items-center">
@@ -49,8 +50,8 @@ export default function Header() {
             ]}
           />
 
-          <Link href="/dashboard" className="menu-item font-orbitron">Dashboard</Link>
-          <Link href="/builder/start" className="menu-item ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-[#0b3b8a] via-[#0bb38a] to-[#f5d300] text-black font-bold shadow">Get Started</Link>
+          <Link href="/dashboard" className="menu-item font-orbitron bw-header-link">Dashboard</Link>
+          <Link href="/builder/start" className="menu-item ml-4 px-4 py-2 rounded-lg bw-btn-orbitron bg-gradient-to-r from-[#0b3b8a] via-[#0bb38a] to-[#f5d300] text-black font-bold shadow">Start building — free</Link>
         </nav>
         <div className="md:hidden">
           <button aria-label="Open menu" className="p-2 rounded-md menu-item bg-white/6 border border-white/6">
