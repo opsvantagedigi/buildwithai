@@ -1,5 +1,4 @@
 import './globals.css'
-import '@/styles/landing.css'
 import '@/assets/gds.css'
 import '@/assets/docs.css'
 

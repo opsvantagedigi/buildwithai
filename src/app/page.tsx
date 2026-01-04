@@ -1,94 +1,127 @@
 import React from 'react'
-import Hero from '@/components/marketing/Hero'
-import FeatureGrid from '@/components/marketing/FeatureGrid'
-import Benefits from '@/components/marketing/Benefits'
-import SocialProof from '@/components/marketing/SocialProof'
-import CTA from '@/components/marketing/CTA'
-import FAQ from '@/components/marketing/FAQ'
+import '@/styles/landing.css'
 
 export const metadata = {
-  title: 'BUILD WITH AI — AI Website Builder for Agencies, Creators, and Stores',
+  title: 'Build With AI — AI-Native Web Infrastructure',
   description:
-    'BUILD WITH AI helps teams and creators launch fast, SEO-optimized websites with AI design, content, and commerce tools. Start free and go live in minutes.',
-  keywords: ['AI website builder', 'AI site generator', 'ecommerce AI', 'website templates', 'SEO builder'],
+    'Calm, confident, intelligent tools for launching AI-native websites — intent-aware, structure-first, and optimized over time.',
 }
 
-export default function Home() {
-  const features = [
-    { title: 'AI Design Assistant', desc: 'Auto-generate modern layouts, typography, and brand palettes tailored to your business.' },
-    { title: 'Content & SEO', desc: 'AI-written pages, meta tags and structured data optimized for discoverability.' },
-    { title: 'Commerce Ready', desc: 'Add products, checkout, and AI-driven merchandising in minutes.' },
-  ]
-
-  const faq = [
-    { q: 'How fast can I launch?', a: 'Most customers create a complete site in under 15 minutes using our AI templates and content flows.' },
-    { q: 'Do you provide hosting?', a: 'Yes — production hosting with CDN, SSL, and optional custom domains is included.' },
-    { q: 'Can I export my site?', a: 'You can export content and integrate with headless platforms; WordPress export is supported via our Builder → WordPress flow.' },
-  ]
-
+export default function Home(): JSX.Element {
   return (
-    <main className="min-h-screen bg-[var(--color-base)] text-white">
-      <section className="section-py-32">
-        <div className="max-w-6xl mx-auto px-6">
-          <Hero
-            kicker="AI Website Builder"
-            title="Build faster with AI — launch beautiful sites that convert"
-            subtitle="Design, content, and commerce combined into a single AI-first workflow for creators, agencies, and small businesses."
-          />
+    <main className="landing-root">
+      <header className="landing-header glass glass-edge-gradient">
+        <div className="container">
+          <div className="brand">
+            <h1 className="brand-mark">Build With AI</h1>
+            <p className="brand-tag">AI-Native Web Infrastructure</p>
+          </div>
+          <nav className="nav orbitron">
+            <ul>
+              <li className="nav-item">Platform<span className="micro">— Automation + AI</span></li>
+              <li className="nav-item">Solutions<span className="micro">— Templates</span></li>
+              <li className="nav-item">Docs<span className="micro">— Guides</span></li>
+              <li className="nav-item">Pricing<span className="micro">— Plans</span></li>
+            </ul>
+          </nav>
         </div>
-      </section>
+      </header>
 
-      <section className="section-py-32">
-        <div className="max-w-6xl mx-auto px-6">
-          <FeatureGrid items={features} />
+      <section className="hero container cinematic">
+        <div className="hero-content">
+          <h2 className="orbitron headline">Ship AI-first websites with confidence</h2>
+          <p className="inter subhead">Intent-aware generation, structure-first layouts, and continuous optimization — built for teams that move fast and stay reliable.</p>
+          <div className="cta-stack">
+            <a className="btn primary" href="/builder">Start building — free</a>
+            <a className="btn ghost" href="/docs">How it works</a>
+          </div>
         </div>
-      </section>
-
-      <section className="section-py-32">
-        <div className="max-w-6xl mx-auto px-6">
-          <Benefits>
-            <article className="card p-4 rounded-lg transition hover:scale-[1.02]">
-              <h4 className="font-semibold gradient-text">Save time</h4>
-              <p className="text-sm text-[rgba(255,255,255,0.85)]">Automate design and content so you can focus on customers.</p>
-            </article>
-            <article className="card p-4 rounded-lg transition hover:scale-[1.02]">
-              <h4 className="font-semibold gradient-text">Better SEO</h4>
-              <p className="text-sm text-[rgba(255,255,255,0.85)]">Built-in SEO tooling and schema for higher organic traffic.</p>
-            </article>
-            <article className="card p-4 rounded-lg transition hover:scale-[1.02]">
-              <h4 className="font-semibold gradient-text">Scale with confidence</h4>
-              <p className="text-sm text-[rgba(255,255,255,0.85)]">Enterprise-ready infrastructure with integrations and analytics.</p>
-            </article>
-          </Benefits>
-        </div>
-      </section>
-
-      <section className="section-py-32">
-        <div className="max-w-6xl mx-auto px-6">
-          <SocialProof logos={[]} />
-        </div>
-      </section>
-
-      <section className="section-py-32">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <CTA href="/builder">Get started free — no credit card required</CTA>
-        </div>
-      </section>
-
-      <section className="section-py-32">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-2xl font-bold gradient-text">Real results from real teams</h2>
-            <p className="mt-3 text-[rgba(255,255,255,0.85)]">Agencies and creators scale faster with AI-powered workflows and templates.</p>
+        <div className="hero-visual">
+          <div className="ai-reasoning">
+            <div className="step">Intent</div>
+            <div className="arrow" aria-hidden>→</div>
+            <div className="step">Structure</div>
+            <div className="arrow" aria-hidden>→</div>
+            <div className="step">Generation</div>
+            <div className="arrow" aria-hidden>→</div>
+            <div className="step">Optimization</div>
+            <div className="arrow" aria-hidden>→</div>
+            <div className="step">Improvement</div>
           </div>
         </div>
       </section>
 
-      <section className="section-py-32">
-        <div className="max-w-6xl mx-auto px-6">
-          <FAQ items={faq} />
+      <section className="intent-aware container">
+        <h3 className="section-title">Intent-aware AI</h3>
+        <p className="lead">Our AI adapts to user intent and business goals — not just templates. It reasons about purpose, then maps that intent to structure and content that scales.</p>
+      </section>
+
+      <section className="how container">
+        <h3 className="section-title">How it works</h3>
+        <ol className="steps">
+          <li><strong>Define intent:</strong> Describe goals, users, and outcomes.</li>
+          <li><strong>Structure:</strong> AI proposes information architecture and layout.</li>
+          <li><strong>Generate:</strong> Content and components are produced and reviewed.</li>
+          <li><strong>Optimize:</strong> Continuous learning refines copy and UX.</li>
+        </ol>
+      </section>
+
+      <section className="features container">
+        <h3 className="section-title">Features by intelligence layer</h3>
+        <div className="feature-grid">
+          <article className="feature">
+            <h4>Perception</h4>
+            <p>Data ingest, content understanding, and semantic indexing.</p>
+          </article>
+          <article className="feature">
+            <h4>Reasoning</h4>
+            <p>Intent mapping, structure synthesis, and decision trees.</p>
+          </article>
+          <article className="feature">
+            <h4>Generation</h4>
+            <p>High-fidelity content, layout code, and assets.</p>
+          </article>
+          <article className="feature">
+            <h4>Optimization</h4>
+            <p>Performance tuning, A/B suggestions, and iterative improvement.</p>
+          </article>
         </div>
       </section>
+
+      <section className="comparison container">
+        <h3 className="section-title">Automation vs Intelligence</h3>
+        <div className="comparison-grid">
+          <div className="col auto">
+            <h4>Automation</h4>
+            <ul>
+              <li>Repeatable tasks</li>
+              <li>Rule-driven</li>
+              <li>Fast to run</li>
+            </ul>
+          </div>
+          <div className="col intel">
+            <h4>Intelligence</h4>
+            <ul>
+              <li>Goal-directed decisions</li>
+              <li>Context-aware</li>
+              <li>Improves over time</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="emotional-cta container glass">
+        <h3>Build with calm confidence</h3>
+        <p className="lead">Join teams using AI-native infrastructure to deliver predictable outcomes and human-centered experiences.</p>
+        <a className="btn large primary" href="/signup">Get early access</a>
+      </section>
+
+      <footer className="landing-footer glass glass-edge-gradient">
+        <div className="container footer-inner">
+          <p>Building the future of AI-native websites.</p>
+          <small>&copy; {new Date().getFullYear()} Build With AI</small>
+        </div>
+      </footer>
     </main>
   )
 }

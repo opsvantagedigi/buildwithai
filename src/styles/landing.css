@@ -1,3 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #050509;
+    --glass-bg: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.08);
+    --edge-grad: linear-gradient(90deg, rgba(124,58,237,0.25), rgba(14,165,233,0.18));
+    --accent: #7c3aed;
+    --muted: rgba(255,255,255,0.7);
+    --max-width: 1100px;
+  }
+
+  .orbitron { font-family: var(--font-orbitron), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+  .inter { font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 2rem; }
+  .landing-root { background: radial-gradient(ellipse at 10% 10%, rgba(124,58,237,0.06), transparent 20%), var(--color-bg); min-height: 100vh; }
+}
+
+@layer components {
+  .glass { background: var(--glass-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--glass-border); border-radius: 12px; }
+
+  .glass-edge-gradient { position: relative; overflow: hidden; }
+  .glass-edge-gradient::after { content: ""; position: absolute; inset: -2px; pointer-events: none; background: var(--edge-grad); mix-blend-mode: screen; opacity: 0.9; filter: blur(18px); }
+
+  .landing-header { display: flex; align-items: center; justify-content: center; padding: 1.25rem 0; z-index: 20; }
+  .landing-header .container { display:flex; align-items:center; justify-content:space-between; }
+  .brand-mark { font-weight:700; letter-spacing:0.4px; }
+  .brand-tag { font-size:0.85rem; color:var(--muted); margin-top:0.125rem }
+
+  .nav ul { display:flex; gap:1.25rem; list-style:none; margin:0; padding:0; }
+  .nav-item { position:relative; font-size:0.9rem; cursor:pointer }
+  .nav-item .micro { display:block; font-size:0.65rem; color:var(--muted); opacity:0; transform:translateY(4px); transition:all .18s ease }
+  .nav-item:hover .micro { opacity:1; transform:none }
+
+  .hero { display:flex; gap:2rem; align-items:center; padding:6rem 0; }
+  .cinematic { padding-top:8rem; padding-bottom:8rem }
+  .hero-content { flex:1 }
+  .hero-visual { flex:1; display:flex; align-items:center; justify-content:center }
+  .headline { font-size:2.75rem; line-height:1; }
+  .subhead { margin-top:1rem; color:var(--muted); max-width:48ch }
+
+  .cta-stack { display:flex; gap:0.75rem; margin-top:1.25rem }
+  .btn { display:inline-flex; align-items:center; justify-content:center; padding:0.75rem 1.25rem; border-radius:10px; font-weight:600; }
+  .btn.primary { background:linear-gradient(90deg,#7c3aed,#0ea5e9); color:white }
+  .btn.ghost { background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted) }
+
+  .ai-reasoning { display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap }
+  .ai-reasoning .step { padding:0.6rem 0.9rem; border-radius:999px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.04); font-size:0.9rem }
+  .ai-reasoning .arrow { color:rgba(255,255,255,0.4); margin:0 0.25rem }
+
+  .section-title { font-size:1.25rem; font-weight:700; margin-bottom:0.75rem }
+  .lead { color:var(--muted); max-width:62ch }
+
+  .feature-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1rem }
+  .feature { padding:1rem; border-radius:10px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03) }
+
+  .comparison-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem }
+  .comparison-grid .col { padding:1rem; border-radius:10px }
+
+  .emotional-cta { text-align:center; padding:2.5rem; margin:2rem 0 }
+  .landing-footer { padding:1.5rem 0; margin-top:3rem }
+
+}
+
+@layer utilities {
+  .orbitron { font-variation-settings: 'wght' 700 }
+  .headline { font-family: var(--font-orbitron); }
+  .micro-preview { position:absolute; left:0; top:100%; transform:translateY(6px); opacity:0; transition:all .18s }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero { flex-direction:column; padding-top:4rem; padding-bottom:4rem }
+    .feature-grid { grid-template-columns:1fr }
+    .comparison-grid { grid-template-columns:1fr }
+    .headline { font-size:2rem }
+  }
+}
 @layer components {
   .hero-gradient {
     background: linear-gradient(90deg,#011A4B,#00594C 55%,#FFD23F);
