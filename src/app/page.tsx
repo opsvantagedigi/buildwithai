@@ -7,7 +7,7 @@ export const metadata = {
     'Calm, confident, intelligent tools for launching AI-native websites — intent-aware, structure-first, and optimized over time.',
 }
 
-export default function Home(): JSX.Element {
+export default function Home() {
   return (
     <main className="landing-root">
       <header className="landing-header glass glass-edge-gradient">
