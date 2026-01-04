@@ -1,5 +1,8 @@
+
+@layer components {
+
 /* ---------------------------------------------
-   DOCS TYPOGRAPHY — ODBWAIL Design Language
+  DOCS TYPOGRAPHY — ODBWAIL Design Language
 ---------------------------------------------- */
 
 .docs-prose {
@@ -148,4 +151,6 @@
 
 .docs-section a:hover {
   color: var(--color-brand-1);
+}
+
 }

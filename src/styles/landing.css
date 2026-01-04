@@ -1,17 +1,19 @@
-.hero-gradient {
-  background: linear-gradient(90deg,#011A4B,#00594C 55%,#FFD23F);
-  background-size: 200% 200%;
-  animation: gradient-shift 12s ease-in-out infinite alternate;
-}
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(90deg,#011A4B,#00594C 55%,#FFD23F);
+    background-size: 200% 200%;
+    animation: gradient-shift 12s ease-in-out infinite alternate;
+  }
 
-.parallax {
-  transform: translateY(var(--parallax-offset, 0));
-  will-change: transform;
-}
+  .parallax {
+    transform: translateY(var(--parallax-offset, 0));
+    will-change: transform;
+  }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.62s cubic-bezier(.2,.9,.3,1) both;
-  transform-origin: 0 0;
+  .animate-fade-in-up {
+    animation: fade-in-up 0.62s cubic-bezier(.2,.9,.3,1) both;
+    transform-origin: 0 0;
+  }
 }
 
 @keyframes fade-in-up {
@@ -44,21 +46,25 @@
   }
 }
 
-/* small helper for gradient mask on cards */
-.card-gradient-edge {
-  background-image: linear-gradient(
-    90deg,
-    rgb(255 210 63 / 8%),
-    transparent
-  );
+@layer components {
+  /* small helper for gradient mask on cards */
+  .card-gradient-edge {
+    background-image: linear-gradient(
+      90deg,
+      rgb(255 210 63 / 8%),
+      transparent
+    );
+  }
 }
 
-/* subtle parallax offset variable and defaults */
-:root {
-  --parallax-offset: 0px;
-}
+@layer base {
+  /* subtle parallax offset variable and defaults */
+  :root {
+    --parallax-offset: 0px;
+  }
 
-/* focus-visible fallback for browsers that don't support the Tailwind utility */
-.focus-ring {
-  box-shadow: 0 0 0 3px rgb(255 210 63 / 16%);
+  /* focus-visible fallback for browsers that don't support the Tailwind utility */
+  .focus-ring {
+    box-shadow: 0 0 0 3px rgb(255 210 63 / 16%);
+  }
 }
