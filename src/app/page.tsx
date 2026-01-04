@@ -11,15 +11,6 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="landing-root">
-      <header className="landing-header glass glass-edge-gradient">
-        <div className="container">
-          <div className="brand">
-            <h1 className="brand-mark font-orbitron"><span className="bw-logo">Build With AI</span></h1>
-            <p className="brand-tag font-inter">AI-Native Web Infrastructure</p>
-          </div>
-          {/* Navigation moved to shared Header component */}
-        </div>
-      </header>
 
       <HeroCursorLightProvider />
 
