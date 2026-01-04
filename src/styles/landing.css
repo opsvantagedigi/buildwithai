@@ -902,7 +902,9 @@
 .bw-hero-visual-wrapper {
   position: relative;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column; /* stack CTA panel and prompt vertically */
+  align-items: flex-end; /* keep panels aligned to the visual edge */
+  gap: 1.5rem;
 }
 
 .bw-hero-visual-glow {
@@ -1061,7 +1063,7 @@
 
 /* Cinematic prompt panel styles */
 .bw-hero-prompt-panel {
-  margin-top: 1.5rem;
+  margin-top: 0; /* placed beneath CTA panel, remove extra top gap */
   margin-bottom: 1.25rem;
   border-radius: 1.25rem;
   padding: 1.1rem 1.1rem 1.2rem;
@@ -1099,11 +1101,11 @@
   padding: 0.75rem 1rem;
   background-color: rgba(15, 23, 42, 0.94);
   border: 1px solid rgba(148, 163, 184, 0.65);
-  min-height: 52px;
+  min-height: 56px; /* increased for comfortable sentence visibility */
   width: 100%;
 }
 
-.bw-hero-prompt-input { flex: 1; border: none; outline: none; background: transparent; color: #e5e7f3; font-size: 1rem; line-height: 1.4; }
+.bw-hero-prompt-input { flex: 1; border: none; outline: none; background: transparent; color: #e5e7f3; font-size: 1rem; line-height: 1.5; }
 .bw-hero-prompt-input::placeholder { color: rgba(148, 163, 184, 0.85); }
 
 .bw-hero-prompt-input-icons { display: inline-flex; align-items: center; gap: 0.25rem; margin-left: 0.4rem; }
@@ -1131,13 +1133,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-start;
+  height: auto; /* allow natural height so prompt stacks beneath */
   padding: 1rem;
   gap: 1rem;
 }
 
-.bw-hero-cta-panel { margin-bottom: 1rem; }
+.bw-hero-cta-panel { margin-bottom: 1.5rem; }
 
 .bw-hero-cta-buttons {
   display: flex;
