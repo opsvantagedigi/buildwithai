@@ -40,7 +40,16 @@ export default function Home() {
                 ship beautiful pages, and keep every deployment auditable, repeatable, and on your terms.
               </p>
 
-              {/* Cinematic prompt panel - new */}
+              {/* Left column: title + subtitle only (prompt panel moved to right) */}
+
+              {/* Prompt panel only — CTA moved to right column */}
+            </div>
+
+            {/* Right: CTA + tagline panel (replaces visual preview) */}
+            <div className="bw-hero-visual-wrapper">
+              <div className="bw-hero-visual-glow" aria-hidden="true" />
+
+              {/* Prompt panel — moved from left column to sit above CTA */}
               <div className="bw-hero-prompt-panel">
                 <div className="bw-hero-prompt-banner">
                   <span className="bw-hero-prompt-badge">🌟 New</span>
@@ -77,12 +86,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Prompt panel only — CTA moved to right column */}
-            </div>
-
-            {/* Right: CTA + tagline panel (replaces visual preview) */}
-            <div className="bw-hero-visual-wrapper">
-              <div className="bw-hero-visual-glow" aria-hidden="true" />
               <div className="bw-hero-cta-panel">
                 <div className="bw-hero-cta-buttons">
                   <a href="/builder/start" className="bw-btn bw-btn-primary">
