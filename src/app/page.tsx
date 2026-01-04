@@ -17,14 +17,7 @@ export default function Home() {
             <h1 className="brand-mark font-orbitron"><span className="bw-logo">Build With AI</span></h1>
             <p className="brand-tag font-inter">AI-Native Web Infrastructure</p>
           </div>
-          <nav className="nav orbitron">
-            <ul>
-              <li className="nav-item">Platform<span className="micro">— Automation + AI</span></li>
-              <li className="nav-item">Solutions<span className="micro">— Templates</span></li>
-              <li className="nav-item">Docs<span className="micro">— Guides</span></li>
-              <li className="nav-item">Pricing<span className="micro">— Plans</span></li>
-            </ul>
-          </nav>
+          {/* Navigation moved to shared Header component */}
         </div>
       </header>
 

@@ -89,6 +89,18 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+/* Global container padding for premium spacing */
+.bw-container {
+  padding-inline: 1.5rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .bw-container {
+    padding-inline: 2.5rem;
+  }
+}
+
 /* Gradient text utility (Orbitron headings use this) */
 .gradient-text {
   background: linear-gradient(90deg, #0b3b8a 0%, #0bb38a 50%, #f5d300 100%);
