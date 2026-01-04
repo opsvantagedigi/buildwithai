@@ -1,14 +1,13 @@
+import './globals.css'
+import '@/styles/landing.css'
+import '@/assets/gds.css'
+import '@/assets/docs.css'
 
 import type { Metadata } from "next";
 import { Inter, Orbitron } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-orbitron' });
-
-import "./globals.css";
-import "@/assets/gds.css";
-import "@/assets/docs.css";
-import "@/styles/landing.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from 'next/script'
