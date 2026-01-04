@@ -1,5 +1,6 @@
 import React from 'react'
 import '@/styles/landing.css'
+import { HeroCursorLightProvider } from '@/components/HeroCursorLightProvider'
 
 export const metadata = {
   title: 'Build With AI — AI-Native Web Infrastructure',
@@ -13,7 +14,7 @@ export default function Home() {
       <header className="landing-header glass glass-edge-gradient">
         <div className="container">
           <div className="brand">
-            <h1 className="brand-mark font-orbitron">Build With AI</h1>
+            <h1 className="brand-mark font-orbitron"><span className="bw-logo">Build With AI</span></h1>
             <p className="brand-tag font-inter">AI-Native Web Infrastructure</p>
           </div>
           <nav className="nav orbitron">
@@ -27,41 +28,66 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section id="hero" className="bw-hero">
-        <div className="container bw-hero-inner">
-          <div className="bw-hero-copy">
-            <h2 className="bw-hero-title">Calm, confident tools for AI-native websites</h2>
-            <p className="bw-hero-sub">Intent-aware generation, structure-first, optimized over time.</p>
-            <div className="bw-hero-actions">
-              <a href="#start" className="bw-cta bw-cta-primary">Get started — it's free</a>
-              <a href="#how-it-works" className="bw-cta bw-cta-secondary">How it works</a>
-            </div>
-            <p className="bw-hero-meta">No credit card. Live in minutes. Evolving with every release.</p>
-          </div>
+      <HeroCursorLightProvider />
 
-          <div className="bw-hero-panel glass-surface">
-            <div className="bw-panel-heading">AI reasoning flow</div>
-            <div className="bw-flow-steps">
-              <div className="bw-flow-step">
-                <span>Intent</span>
-                <p>Describe your goals, audience, and outcomes.</p>
+      <section
+        id="hero"
+        className="bw-hero relative overflow-hidden"
+      >
+        {/* Cinematic background layers */}
+        <div className="bw-hero-bg bw-hero-glow-layer" aria-hidden="true" />
+        <div className="bw-hero-bg bw-hero-flow-grid" aria-hidden="true" />
+
+        {/* Cursor-reactive light */}
+        <div className="bw-hero-bg bw-hero-cursor-light" aria-hidden="true" />
+
+        {/* Content container */}
+        <div className="bw-container bw-hero-inner">
+          <div className="bw-hero-grid">
+            {/* Left: text content */}
+            <div className="bw-hero-copy">
+              <p className="bw-eyebrow">AI Website Builder for founders who care</p>
+              <h1 className="bw-hero-title">
+                Build a world-class website with AI,
+                <span className="bw-hero-title-highlight"> without losing your story.</span>
+              </h1>
+              <p className="bw-hero-subtitle">
+                Build With AI is your cinematic, founder-grade website builder. Capture your voice,
+                ship beautiful pages, and keep every deployment auditable, repeatable, and on your terms.
+              </p>
+
+              <div className="bw-hero-cta-row">
+                <a href="/builder/start" className="bw-btn bw-btn-primary">
+                  Start building with AI
+                </a>
+                <a href="/compare/ai-website-builders" className="bw-btn bw-btn-ghost">
+                  See why we’re different
+                </a>
               </div>
-              <div className="bw-flow-step">
-                <span>Structure</span>
-                <p>AI plans the information architecture before visuals.</p>
+
+              <div className="bw-hero-meta">
+                <span>Deterministic builds · No lock-in · Founder-grade rituals</span>
               </div>
-              <div className="bw-flow-step">
-                <span>Generation</span>
-                <p>Pages, sections, and copy generated to match intent.</p>
-              </div>
-              <div className="bw-flow-step">
-                <span>Optimization</span>
-                <p>Performance, SEO, and clarity tuned automatically.</p>
-              </div>
-              <div className="bw-flow-step">
-                <span>Improvement</span>
-                <p>Suggestions as your content, traffic, and goals evolve.</p>
+            </div>
+
+            {/* Right: hero visual panel */}
+            <div className="bw-hero-visual-wrapper">
+              <div className="bw-hero-visual-glow" aria-hidden="true" />
+              <div className="bw-hero-visual-panel">
+                <div className="bw-hero-visual-header">
+                  <span className="bw-pill">Live preview</span>
+                  <span className="bw-hero-visual-meta">Cinematic AI layout · In one click</span>
+                </div>
+                <div className="bw-hero-visual-body">
+                  <div className="bw-hero-visual-line bw-hero-visual-line-primary" />
+                  <div className="bw-hero-visual-line bw-hero-visual-line-secondary" />
+                  <div className="bw-hero-visual-mock">
+                    <span className="bw-hero-visual-mock-title">Your brand, not a template.</span>
+                    <span className="bw-hero-visual-mock-subtitle">
+                      AI assembles sections, you keep control of every detail.
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
