@@ -21,6 +21,20 @@ export function ThemeToggle() {
     }
   }, []);
 
+  useEffect(() => {
+    const header = document.querySelector(".cinematic-header");
+
+    const onScroll = () => {
+      if (!header) return;
+      if (window.scrollY > 10) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    };
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   if (!mounted) return null;
 
   const toggleTheme = () => {
