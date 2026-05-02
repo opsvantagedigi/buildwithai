@@ -1,0 +1,15 @@
+
+> buildwithai_redesign@0.1.0 dev
+> next dev --turbo
+
+⚠ Port 3000 is in use by an unknown process, using available port 3001 instead.
+Optional dependency @next/mdx not found — continuing without MDX support.
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://10.0.0.1:3001
+
+✓ Starting...
+✓ Ready in 847ms
+ POST /api/ai/site/generate 200 in 496ms (compile: 477ms, render: 19ms)
+Optional dependency @next/mdx not found — continuing without MDX support.
+[?25h
